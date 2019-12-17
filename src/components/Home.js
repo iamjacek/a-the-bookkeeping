@@ -52,8 +52,8 @@ const Wrapper = styled.div`
     }
 `
 const ImageWrapper = styled.div`
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: 180px;
     margin: 0 auto;
 `
 const Img = styled.img`

@@ -6,6 +6,7 @@ const Wrapper = styled.button`
     border: none;
     background: none;
     position: relative;
+    margin: ${({isOpen}) => isOpen ? '14px 10px' : '0'};
     z-index: 99;
     cursor: pointer;
 `
@@ -15,8 +16,10 @@ const InnerHamburger = styled.div`
     height: 3px;
     background-color: ${({isOpen}) => isOpen ? 'transparent' : '#004F69'};
     transition: ${({isOpen}) => isOpen ? 'background-color .2s ease-out' : 'background-color .2s .2s ease-out'};
-    position: relative;
+    position: ${({isOpen}) => isOpen ? 'fixed' : 'relative'};
+    right: ${({isOpen}) => isOpen ? 'calc(2rem + 10px)' : '0'};
     border-radius: 50px;
+    margin: 0;
     
     ::after, ::before {
         content: "";
