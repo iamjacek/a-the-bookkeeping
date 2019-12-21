@@ -20,6 +20,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+   
 `
 const LinkMenu = styled.div`
     font-family: 'Play', sans-serif;
@@ -34,21 +35,21 @@ const LinkMenu = styled.div`
     text-align: center;
     opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
     transform: ${({ isOpen }) => (isOpen ? 'scaleY(1)' : 'scaleY(.7)')};
-    transition: opacity .3s .2s ease-in, transform .3s .2s ease-in;
+    transition: opacity .6s .3s ease-in, transform .3s .2s ease-in;
 `
 
 const LinkMenuSmallLeft = styled(LinkMenu)`
     font-size: 20px;
     margin: 0 5px;
     transform: translateX(${({ isOpen }) => isOpen ? ("0") : ("-100vw")});
-    transition: transform .3s .3s ease-in;
+    transition: transform .6s .1s ease-in;
 `
 
 const LinkMenuSmall = styled(LinkMenu)`
     font-size: 20px;
     margin: 0 5px;
     transform: translateX(${({ isOpen }) => isOpen ? ("0") : ("100vw")});
-    transition: transform .3s .3s ease-in;
+    transition: transform .6s .1s ease-in;
 `
 
 const MenuWrap = styled.div`

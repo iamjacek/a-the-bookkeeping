@@ -9,6 +9,9 @@ const Wrapper = styled.button`
     margin: ${({isOpen}) => isOpen ? '14px 10px' : '0'};
     z-index: 99;
     cursor: pointer;
+     ${({ theme }) => theme.media.medium}{
+        display: none;
+    }
 `
 
 const InnerHamburger = styled.div`
