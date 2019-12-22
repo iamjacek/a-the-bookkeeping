@@ -5,31 +5,28 @@ import img from '../images/bottom_home.svg'
 import img2 from '../images/home_shape_bottom.svg'
 
 const Outter = styled.div`
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 	position: relative;
 	background-image: url(${img});
 	background-repeat: no-repeat;
 	background-size: cover;
-	
+    background-position-y: 10px;
 	background-color: #e4e4e4;
 	width: 100%;
 	min-height: 85vh;
 
 	${({ theme }) => theme.media.medium} {
 		background-image: url(${img2});
-		
-		
-        display: flex;
-        align-items: center;
-	    justify-content: center;
-        
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 `
 const Wrapper = styled.div`
-	* {
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
 	background-color: transparent;
 	min-height: 520px;
 	width: 300px;
@@ -39,16 +36,15 @@ const Wrapper = styled.div`
 	justify-content: flex-start;
 	margin: 0 auto;
 	height: 100%;
-    ${({ theme }) => theme.media.small} {
-        width: 325px;
+	${({ theme }) => theme.media.small} {
+		width: 325px;
 	}
-    ${({ theme }) => theme.media.medium} {
-        flex-direction: row-reverse;
-        width: 80%;
-        transform: translateY(-12%);
+	${({ theme }) => theme.media.medium} {
+		flex-direction: row-reverse;
+		width: 80%;
+		transform: translateY(-12%);
 	}
 	${({ theme }) => theme.media.large} {
-        
 	}
 	${({ theme }) => theme.media.xlarge} {
 	}
@@ -59,10 +55,10 @@ const ImageWrapper = styled.div`
 	width: 250px;
 	margin: 0 auto;
 	${({ theme }) => theme.media.small} {
-        width: 270px;
+		width: 270px;
 	}
 	${({ theme }) => theme.media.medium} {
-        width: 40%;
+		width: 40%;
 	}
 	${({ theme }) => theme.media.large} {
 	}
@@ -78,19 +74,19 @@ const TextWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-    ${({ theme }) => theme.media.small} {
-        width: 325px;
+	${({ theme }) => theme.media.small} {
+		width: 325px;
 	}
 	${({ theme }) => theme.media.medium} {
-        width: 60%;
-        p{
-            width: 70%;
-        }
+		width: 60%;
+		p {
+			width: 70%;
+		}
 	}
 	${({ theme }) => theme.media.large} {
-        p{
-            width: 50%;
-        }
+		p {
+			width: 50%;
+		}
 	}
 	${({ theme }) => theme.media.xlarge} {
 	}
@@ -100,7 +96,7 @@ const TextWrapper = styled.div`
 
 const Img = styled.img`width: 100%;`
 
-const Quote = styled.button`
+const Button = styled.button`
 	position: relative;
 	font-family: 'Ubuntu', sans-serif;
 	font-size: calc(${({ theme }) => theme.font.base}*1);
@@ -121,17 +117,16 @@ const Quote = styled.button`
 	${({ theme }) => theme.media.medium} {
 	}
 	${({ theme }) => theme.media.large} {
-       
 	}
 	${({ theme }) => theme.media.xlarge} {
-        font-size: calc(${({ theme }) => theme.font.base}*1.5);
-        width: 245px;
-	    height: 43px;
+		font-size: calc(${({ theme }) => theme.font.base}*1.5);
+		width: 245px;
+		height: 43px;
 	}
 	${({ theme }) => theme.media.xxlarge} {
-         font-size: calc(${({ theme }) => theme.font.base}*3);
-        width: 525px;
-	    height: 83px;
+		font-size: calc(${({ theme }) => theme.font.base}*3);
+		width: 525px;
+		height: 83px;
 	}
 `
 
@@ -156,7 +151,7 @@ class Home extends Component {
 							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
 						</p>
 
-						<Quote>GET QUOTE</Quote>
+						<Button>GET QUOTE</Button>
 					</TextWrapper>
 				</Wrapper>
 			</Outter>

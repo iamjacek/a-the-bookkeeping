@@ -43,7 +43,7 @@ const HeaderWrapper = styled.header`
 
 	background-repeat: no-repeat;
 	${({ theme }) => theme.media.large} {
-		background-size: 30%;
+		background-size: contain;
 	}
 `
 

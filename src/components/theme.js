@@ -13,3 +13,19 @@ export const theme = {
         header: '2em'
     }
 }
+
+// ${ ({ theme }) => theme.media.small } {
+  
+// 	      }
+// ${ ({ theme }) => theme.media.medium } {
+   
+// 	      }
+// ${ ({ theme }) => theme.media.large } {
+ 
+// 	      }
+// ${ ({ theme }) => theme.media.xlarge } {
+
+// 	      }
+// ${ ({ theme }) => theme.media.xxlarge } {
+
+// 	      }
