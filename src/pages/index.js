@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import Home from "../components/Home"
 import PreService from "../components/PreService"
 import Service from "../components/Service"
+import About from "../components/About"
 
 import SEO from "../components/seo"
 
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <Home />
     <PreService />
     <Service />
+    <About />
   </Layout>
 );
 export default IndexPage

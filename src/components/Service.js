@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import star from '../images/star.svg'
+import shapeServices from '../images/shape_services.svg'
 
 const Wrapper = styled.div`
 	* {
@@ -10,6 +11,33 @@ const Wrapper = styled.div`
 	position: relative;
 	width: 100%;
 	min-height: 100vh;
+	${({ theme }) => theme.media.large} {
+		background-image: url(${shapeServices});
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+`
+
+const CardWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 1000px;
+	margin: 0 auto;
+	${({ theme }) => theme.media.medium} {
+		flex-direction: row;
+	}
+	${({ theme }) => theme.media.xlarge} {
+		max-width: 1500px;
+	}
+	${({ theme }) => theme.media.xxlarge} {
+		max-width: 2400px;
+	}
 `
 const Title = styled.div`
 	text-align: center;
@@ -32,7 +60,23 @@ const Card = styled.div`
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
+	${({ theme }) => theme.media.large} {
+		margin: 30px 10px;
+	}
+	${({ theme }) => theme.media.xlarge} {
+		margin: 30px 30px;
+		width: ${({ special }) => (special ? '360px' : '330px')};
+		height: ${({ special }) => (special ? '500px' : '480px')};
+		border: 3px solid #004e68;
+	}
+	${({ theme }) => theme.media.xxlarge} {
+		margin: 30px 30px;
+		width: ${({ special }) => (special ? '860px' : '730px')};
+		height: ${({ special }) => (special ? '1000px' : '880px')};
+		border: 7px solid #004e68;
+		border-radius: 7px;
+	}
 `
 
 const CardTitle = styled.div`
@@ -42,6 +86,12 @@ const CardTitle = styled.div`
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
 	text-align: center;
 	margin-bottom: 20px;
+	${({ theme }) => theme.media.xlarge} {
+		font-size: 50px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 100px;
+	}
 `
 
 const CardDescription = styled.div`
@@ -50,6 +100,12 @@ const CardDescription = styled.div`
 	font-size: 14px;
 	margin-bottom: 30px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
+    ${({ theme }) => theme.media.xlarge} {
+		font-size: 16px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 32px;
+	}
 `
 
 const CardFeature = styled.div`
@@ -63,6 +119,12 @@ const CardFeature = styled.div`
 	justify-content: space-between;
 	&:nth-child(6) {
 		margin-bottom: 30px;
+	}
+    ${({ theme }) => theme.media.xlarge} {
+		font-size: 16px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 32px;
 	}
 `
 
@@ -82,6 +144,12 @@ const PriceDescription = styled.div`
 	font-family: 'Play', sans-serif;
 	font-size: 14px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
+    ${({ theme }) => theme.media.xlarge} {
+		font-size: 16px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 32px;
+	}
 `
 
 const PriceValue = styled.div`
@@ -89,11 +157,23 @@ const PriceValue = styled.div`
 	font-family: 'Play', sans-serif;
 	font-size: 34px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
+    ${({ theme }) => theme.media.xlarge} {
+		font-size: 40px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 80px;
+	}
 `
 
 const PriceChange = styled(PriceValue)`
     font-size: 24px;
     transform: translateY(3px);
+    ${({ theme }) => theme.media.xlarge} {
+		font-size: 30px;
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+		font-size: 60px;
+	}
 `
 
 const PriceWrapper = styled.div`
@@ -119,6 +199,16 @@ const OrderButton = styled.button`
 	:hover {
 		background-color: ${({ special }) => (special ? '#E4E4E4' : '#007ba3')};
 	}
+	${({ theme }) => theme.media.xlarge} {
+		width: 215px;
+		height: 40px;
+		font-size: calc(${({ theme }) => theme.font.base}*1.3);
+	}
+    ${({ theme }) => theme.media.xxlarge} {
+			width: 415px;
+		height: 60px;
+		font-size: calc(${({ theme }) => theme.font.base}*2);
+	}
 `
 
 const Star = styled.img`
@@ -126,6 +216,12 @@ const Star = styled.img`
 	top: 0;
 	right: 0;
 	transform: translate(5px, -1px);
+	${({ theme }) => theme.media.xlarge} {
+		transform: scale(1.4) translate(0px, 3px);
+	}
+	${({ theme }) => theme.media.xxlarge} {
+		transform: scale(3) translate(-7px, 9px);
+	}
 `
 
 const Foot = styled.div`
@@ -133,9 +229,14 @@ const Foot = styled.div`
 	font-family: 'Play', sans-serif;
 	font-size: 14px;
 	color: #004e68;
-    text-align: center;
-    margin: ${({margin}) => margin = margin};
+	text-align: center;
+	margin: ${({ margin }) => (margin = margin)};
+    p:nth-child(1) {
+		margin-bottom: 10px;
+	}
 `
+
+const FootWrapper = styled.div``
 
 class PreService extends Component {
 	render() {
@@ -144,112 +245,120 @@ class PreService extends Component {
 				<Title>
 					<h2>Meet some of our plans</h2>
 				</Title>
-				<Card>
-					<CardTitle>Basic</CardTitle>
-					<CardDescription>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore.
-					</CardDescription>
-					<CardFeature>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Invoices</Description>
-						<Value>up to 20</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Tax advice</Description>
-						<Value>included</Value>
-					</CardFeature>
-					<PriceTag>
-						<PriceDescription>Price starts from </PriceDescription>
-						<PriceWrapper>
-							<PriceValue>£1</PriceValue>
-							<PriceChange>
-								<sup>.00</sup>
-							</PriceChange>
-						</PriceWrapper>
-					</PriceTag>
-					<OrderButton>Order</OrderButton>
-				</Card>
+				<CardWrapper>
+					<Card>
+						<CardTitle>Basic</CardTitle>
+						<CardDescription>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+							labore et dolore.
+						</CardDescription>
+						<CardFeature>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Invoices</Description>
+							<Value>up to 20</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Tax advice</Description>
+							<Value>included</Value>
+						</CardFeature>
+						<PriceTag>
+							<PriceDescription>Price starts from </PriceDescription>
+							<PriceWrapper>
+								<PriceValue>£1</PriceValue>
+								<PriceChange>
+									<sup>.00</sup>
+								</PriceChange>
+							</PriceWrapper>
+						</PriceTag>
+						<OrderButton>Order</OrderButton>
+					</Card>
 
-				<Card special>
-					<Star src={star} />
-					<CardTitle special>Basic</CardTitle>
-					<CardDescription special>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore.
-					</CardDescription>
-					<CardFeature special>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature special>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature special>
-						<Description>Invoices</Description>
-						<Value>up to 20</Value>
-					</CardFeature>
-					<CardFeature special>
-						<Description>Tax advice</Description>
-						<Value>included</Value>
-					</CardFeature>
-					<PriceTag>
-						<PriceDescription special>Price starts from </PriceDescription>
-						<PriceWrapper>
-							<PriceValue special>£1</PriceValue>
-							<PriceChange special>
-								<sup>.00</sup>
-							</PriceChange>
-						</PriceWrapper>
-					</PriceTag>
-					<OrderButton special>Order</OrderButton>
-				</Card>
+					<Card special>
+						<Star src={star} />
+						<CardTitle special>Premium</CardTitle>
+						<CardDescription special>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+							labore et dolore.
+						</CardDescription>
+						<CardFeature special>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature special>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature special>
+							<Description>Invoices</Description>
+							<Value>up to 20</Value>
+						</CardFeature>
+						<CardFeature special>
+							<Description>Tax advice</Description>
+							<Value>included</Value>
+						</CardFeature>
+						<PriceTag>
+							<PriceDescription special>Price starts from </PriceDescription>
+							<PriceWrapper>
+								<PriceValue special>£1</PriceValue>
+								<PriceChange special>
+									<sup>.00</sup>
+								</PriceChange>
+							</PriceWrapper>
+						</PriceTag>
+						<OrderButton special>Order</OrderButton>
+					</Card>
 
-				<Card>
-					<CardTitle>Basic</CardTitle>
-					<CardDescription>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore.
-					</CardDescription>
-					<CardFeature>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Emloyees no.</Description>
-						<Value>up to 5</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Invoices</Description>
-						<Value>up to 20</Value>
-					</CardFeature>
-					<CardFeature>
-						<Description>Tax advice</Description>
-						<Value>included</Value>
-					</CardFeature>
-					<PriceTag>
-						<PriceDescription>Price starts from </PriceDescription>
-						<PriceWrapper>
-							<PriceValue>£1</PriceValue>
-							<PriceChange>
-								<sup>.00</sup>
-							</PriceChange>
-						</PriceWrapper>
-					</PriceTag>
-					<OrderButton>Order</OrderButton>
-				</Card>
-				<Foot margin='50px auto 0 auto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Foot>
-				<Foot margin='0 auto 30px auto'>
-					<strong>Lorem ipsum dolor.</strong>
-				</Foot>
+					<Card>
+						<CardTitle>Enterprise</CardTitle>
+						<CardDescription>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+							labore et dolore.
+						</CardDescription>
+						<CardFeature>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Emloyees no.</Description>
+							<Value>up to 5</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Invoices</Description>
+							<Value>up to 20</Value>
+						</CardFeature>
+						<CardFeature>
+							<Description>Tax advice</Description>
+							<Value>included</Value>
+						</CardFeature>
+						<PriceTag>
+							<PriceDescription>Price starts from </PriceDescription>
+							<PriceWrapper>
+								<PriceValue>£1</PriceValue>
+								<PriceChange>
+									<sup>.00</sup>
+								</PriceChange>
+							</PriceWrapper>
+						</PriceTag>
+						<OrderButton>Order</OrderButton>
+					</Card>
+				</CardWrapper>
+				<FootWrapper>
+					<Foot margin='50px auto 0 auto'>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</Foot>
+					<Foot margin='0 auto 80px auto'>
+						<p>
+							<strong>Lorem ipsum dolor.</strong>
+						</p>
+					</Foot>
+				</FootWrapper>
 			</Wrapper>
 		)
 	}
