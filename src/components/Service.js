@@ -41,10 +41,11 @@ const CardWrapper = styled.div`
 `
 const Title = styled.div`
 	text-align: center;
-	width: 100%;
 	margin: 30px auto;
+
 	h2 {
 		font-weight: 800;
+		display: inline-block;
 	}
 `
 const Card = styled.div`
@@ -89,7 +90,7 @@ const CardTitle = styled.div`
 	${({ theme }) => theme.media.xlarge} {
 		font-size: 50px;
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		font-size: 100px;
 	}
 `
@@ -100,10 +101,10 @@ const CardDescription = styled.div`
 	font-size: 14px;
 	margin-bottom: 30px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
-    ${({ theme }) => theme.media.xlarge} {
+	${({ theme }) => theme.media.xlarge} {
 		font-size: 16px;
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		font-size: 32px;
 	}
 `
@@ -120,10 +121,10 @@ const CardFeature = styled.div`
 	&:nth-child(6) {
 		margin-bottom: 30px;
 	}
-    ${({ theme }) => theme.media.xlarge} {
+	${({ theme }) => theme.media.xlarge} {
 		font-size: 16px;
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		font-size: 32px;
 	}
 `
@@ -144,10 +145,10 @@ const PriceDescription = styled.div`
 	font-family: 'Play', sans-serif;
 	font-size: 14px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
-    ${({ theme }) => theme.media.xlarge} {
+	${({ theme }) => theme.media.xlarge} {
 		font-size: 16px;
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		font-size: 32px;
 	}
 `
@@ -157,10 +158,10 @@ const PriceValue = styled.div`
 	font-family: 'Play', sans-serif;
 	font-size: 34px;
 	color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
-    ${({ theme }) => theme.media.xlarge} {
+	${({ theme }) => theme.media.xlarge} {
 		font-size: 40px;
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		font-size: 80px;
 	}
 `
@@ -204,8 +205,8 @@ const OrderButton = styled.button`
 		height: 40px;
 		font-size: calc(${({ theme }) => theme.font.base}*1.3);
 	}
-    ${({ theme }) => theme.media.xxlarge} {
-			width: 415px;
+	${({ theme }) => theme.media.xxlarge} {
+		width: 415px;
 		height: 60px;
 		font-size: calc(${({ theme }) => theme.font.base}*2);
 	}
@@ -231,7 +232,7 @@ const Foot = styled.div`
 	color: #004e68;
 	text-align: center;
 	margin: ${({ margin }) => (margin = margin)};
-    p:nth-child(1) {
+	p:nth-child(1) {
 		margin-bottom: 10px;
 	}
 `

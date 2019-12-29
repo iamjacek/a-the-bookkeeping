@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -16,8 +9,6 @@ import { theme } from './theme'
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Play:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap');
-//font-family: 'Play', sans-serif;
-//font-family: 'Ubuntu', sans-serif;
 
   body {
     margin: 0;
@@ -47,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 20px;
         font-size: calc(${({ theme }) => theme.font.header}*1.22);
         font-weight: 800;
+        background: #D5D9DA;
+        padding: 0.2em;
+        border-radius: 5px;
        ${({ theme }) => theme.media.small} {
           font-size: calc(${({ theme }) => theme.font.header}*1.22*1.1);
 	      }
@@ -67,6 +61,9 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 0;
         font-size: calc(${({ theme }) => theme.font.header}*1);
         font-weight: 400;
+        background: #D5D9DA;
+        padding: 0.2em;
+        border-radius: 5px;
          ${({ theme }) => theme.media.small} {
           font-size: calc(${({ theme }) => theme.font.header}*1.1);
 	      }

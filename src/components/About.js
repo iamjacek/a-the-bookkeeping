@@ -43,6 +43,7 @@ const Title = styled.div`
 	margin: 30px auto;
 	h2 {
 		font-weight: 800;
+		display: inline-block;
 	}
 	${({ theme }) => theme.media.large} {
 		margin-top: 50px;
@@ -212,7 +213,7 @@ const Email = styled.input`
 		font-size: calc(${({ theme }) => theme.font.base}*1.5);
 	}
 		${({ theme }) => theme.media.xxlarge} {
-		width: 850px;
+		width: 1050px;
 		height: 100px;
 		margin: 0;
 		margin-bottom: 2em;
