@@ -17,8 +17,9 @@ const Wrapper = styled.div`
 	${({ theme }) => theme.media.large} {
 		background-image: url(${shape});
 		background-repeat: no-repeat;
-		background-size: contain;
+		background-size: 55% 130%;
 		background-position-x: 100%;
+		background-position-y: 50%;
 		flex-direction: row;
 	}
 `
@@ -56,6 +57,9 @@ const Text = styled.div`
 
 	h2 {
 		margin-bottom: 20px;
+		background: #D5D9DA;
+		padding: .2em;
+		border-radius: 5%;
 	}
 `
 
@@ -88,7 +92,7 @@ const Form = styled.div`
 			margin-bottom: 5px;
 			${({ theme }) => theme.media.xlarge} {
 				font-size: calc(${({ theme }) => theme.font.base}*1);
-                margin-bottom: 10px;
+				margin-bottom: 10px;
 			}
 			${({ theme }) => theme.media.xxlarge} {
 				font-size: calc(${({ theme }) => theme.font.base}*2.2);
@@ -107,7 +111,7 @@ const Form = styled.div`
 			${({ theme }) => theme.media.xlarge} {
 				font-size: calc(${({ theme }) => theme.font.base}*1.3);
 				height: 40px;
-                margin-bottom: 30px;
+				margin-bottom: 30px;
 			}
 			${({ theme }) => theme.media.xxlarge} {
 				font-size: calc(${({ theme }) => theme.font.base}*2.6);
@@ -115,6 +119,9 @@ const Form = styled.div`
 				border-bottom: 8px solid #004f69;
 				border-radius: 7px;
 				margin-bottom: 60px;
+			}
+			:focus {
+				border: 3px solid #004f69;
 			}
 		}
 		textarea {
@@ -221,8 +228,7 @@ const ImageWrapperBig = styled.div`
 			width: 80%;
 		}
 	}
-    ${({ theme }) => theme.media.xxlarge} {
-        
+	${({ theme }) => theme.media.xxlarge} {
 		img {
 			width: 150%;
 		}
@@ -253,11 +259,11 @@ const ContactBox = styled.div`
 			font-size: calc(${({ theme }) => theme.font.base}*1.2);
 		}
 	}
-    ${({ theme }) => theme.media.xxlarge} {
+	${({ theme }) => theme.media.xxlarge} {
 		h3 {
 			font-size: calc(${({ theme }) => theme.font.base}*2.4);
 		}
-        transform: translateX(-300px);
+		transform: translateX(-300px);
 	}
 `
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from "gatsby"
+
 import wallet from '../images/wallet.svg'
 import img from '../images/bottom_home.svg'
 import img2 from '../images/home_shape_bottom.svg'
@@ -13,7 +15,7 @@ const Outter = styled.div`
 	background-image: url(${img});
 	background-repeat: no-repeat;
 	background-size: cover;
-    background-position-y: 10px;
+	background-position-y: 10px;
 	background-color: #e4e4e4;
 	width: 100%;
 	min-height: 85vh;
@@ -58,9 +60,10 @@ const ImageWrapper = styled.div`
 		width: 270px;
 	}
 	${({ theme }) => theme.media.medium} {
-		width: 40%;
+		width: 55%;
 	}
 	${({ theme }) => theme.media.large} {
+		width: 40%;
 	}
 	${({ theme }) => theme.media.xlarge} {
 	}
@@ -137,7 +140,7 @@ class Home extends Component {
 	render() {
 		return (
 			<Outter>
-				<Wrapper>
+				<Wrapper id='home'>
 					<ImageWrapper>
 						<Img src={wallet} />
 					</ImageWrapper>
@@ -150,8 +153,9 @@ class Home extends Component {
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
 						</p>
-
-						<Button>GET QUOTE</Button>
+						<Link to='/#contact'>
+							<Button>GET QUOTE</Button>
+						</Link>
 					</TextWrapper>
 				</Wrapper>
 			</Outter>

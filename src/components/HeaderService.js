@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
-import img from '../images/header_mobile.svg'
-import Hamburger from '../components/Hamburger'
-import MenuMobile from '../components/MenuMobile'
-import MenuDesktop from '../components/MenuDesktop'
+import Hamburger from './Hamburger'
+import MenuMobile from './MenuMobile'
+import MenuDesktop from './MenuDesktop'
 
 const LogoWrapper = styled.div`
 	width: 130px;
@@ -34,18 +33,11 @@ const HeaderWrapper = styled.header`
 	z-index: 99;
 	width: 100%;
 	position: relative;
-	background-color: #e4e4e4;
+	background-color: transparent;
 	min-height: 15vh;
-	background: #e4e4e4;
-	background-image: url(${img});
-	background-image: url(${img}), linear-gradient(#d5d9da, #e4e4e4 50%);
+	height: 100%;
+	background-image:  linear-gradient(#d5d9da, transparent 50%);
 
-	background-repeat: no-repeat;
-	${({ theme }) => theme.media.large} {
-		background-size: contain;
-		min-height: unset;
-		height: 15vh;
-	}
 `
 
 const HeaderContent = styled.header`
@@ -57,7 +49,6 @@ const HeaderContent = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	
 `
 
 const Header = ({ siteTitle }) => {

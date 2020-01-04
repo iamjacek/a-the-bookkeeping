@@ -256,7 +256,7 @@ const LayoutWrapper = styled.div`
 class About extends Component {
 	render() {
 		return (
-			<Wrapper>
+			<Wrapper id='about'>
 				<Title>
 					<h2>What we actually do</h2>
 				</Title>

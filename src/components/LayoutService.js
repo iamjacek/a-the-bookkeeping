@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Header from './Header'
+import Header from './HeaderService'
 import { theme } from './theme'
 import Footer from '../components/Footer'
+import path from '../images/path_service_extra.svg'
 
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
@@ -63,7 +64,6 @@ const GlobalStyle = createGlobalStyle`
     h2{
         margin-bottom: 0;
         font-size: calc(${({ theme }) => theme.font.header}*1);
-        font-weight: 400;
         padding: 0;
          ${({ theme }) => theme.media.small} {
           font-size: calc(${({ theme }) => theme.font.header}*1.1);
@@ -107,30 +107,21 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-//https://www.npmjs.com/package/smooth-scroll using smooth scroll plugin
-//this is needed to activate smooth scroll
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
-}
-
-const Wrapper = styled.div`background-color: #e4e4e4;`
+const Wrapper = styled.div`
+	background-color: #e4e4e4;
+	${({ theme }) => theme.media.medium} {
+		background-image: url(${path});
+		background-repeat: no-repeat;
+		background-position: -1%;
+		background-size: contain;
+	}
+`
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`)
-
 	return (
 		<ThemeProvider theme={theme}>
 			<Wrapper>
-				<Header siteTitle={data.site.siteMetadata.title} />
+				<Header />
 
 				<GlobalStyle />
 				<main>{children}</main>

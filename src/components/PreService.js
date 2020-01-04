@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from "gatsby"
+
 import img from '../images/bottom_home.svg'
 import leftPlatform from '../images/left_platform.svg'
 import rightPlatform from '../images/right_platform.svg'
 import preserviceSVG from '../images/preservice-shape.svg'
 import preserviceBIG from '../images/shape_preservice_big.svg'
+
 
 const Wrapper = styled.div`
 	* {
@@ -31,33 +34,35 @@ const Wrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 	}
-	${({ theme }) => theme.media.medium} {
+	${({ theme }) => theme.media.large} {
 		background-image: url(${preserviceBIG});
 		background-position-y: 0;
 	}
 `
 const Bookkeeping = styled.div`
+position: relative;
 	display: flex;
 	flex-direction: column;
-	height: 50%;
+	height: 40%;
 
 	${({ theme }) => theme.media.medium} {
 		flex-direction: row-reverse;
 	}
 	${({ theme }) => theme.media.large} {
-		transform: translateY(10%);
+		
 	}
 `
 const Payroll = styled.div`
+position: relative;
 	display: flex;
 	flex-direction: column;
-	height: 50%;
+	height: 40%;
 
 	${({ theme }) => theme.media.medium} {
 		flex-direction: row;
 	}
 	${({ theme }) => theme.media.large} {
-		transform: translateY(-10%);
+		
 	}
 `
 const ImageWrapper = styled.div`
@@ -117,6 +122,7 @@ const TextWrapper = styled.div`
 		}
 	}
 	${({ theme }) => theme.media.large} {
+		
 		width: 50%;
 		p {
 			width: 70%;
@@ -183,7 +189,9 @@ class PreService extends Component {
 							laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 
-						<Button>BOOKKEEPING</Button>
+						<Link to='/bookkeeping'>
+							<Button>BOOKKEEPING</Button>
+						</Link>
 					</TextWrapper>
 				</Bookkeeping>
 				<Payroll>
@@ -200,8 +208,9 @@ class PreService extends Component {
 							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 							laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
-
-						<Button>TO PAYROLL</Button>
+						<Link to='/payroll'>
+							<Button>TO PAYROLL</Button>
+							</Link>
 					</TextWrapper>
 				</Payroll>
 			</Wrapper>

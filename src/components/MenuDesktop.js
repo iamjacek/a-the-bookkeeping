@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
 	* {
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 	width: 60%;
 	height: 100%;
-	top: -10%;
+	top: -5%;
 	right: 0;
 	left: 20%;
 	display: none;
@@ -20,14 +21,18 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 	${({ theme }) => theme.media.medium} {
 		display: flex;
+		width: 50%;
+		left: 30%;
 	}
 	${({ theme }) => theme.media.large} {
+		width: 60%;
+		left: 20%;
+		top: 0;
 	}
 	${({ theme }) => theme.media.xlarge} {
 	}
 	${({ theme }) => theme.media.xxlarge} {
 	}
-    
 `
 const LinkMenu = styled.div`
 	font-family: 'Ubuntu', sans-serif;
@@ -37,10 +42,10 @@ const LinkMenu = styled.div`
 	border: none;
 	background-color: transparent;
 	margin: 0 5px;
-    cursor: pointer;
-    :hover{
-        color: #007ba3;
-    }
+	cursor: pointer;
+	:hover {
+		color: #007ba3;
+	}
 	${({ theme }) => theme.media.large} {
 		font-size: calc(${({ theme }) => theme.font.base}*1.25);
 		margin: 0 10px;
@@ -62,28 +67,33 @@ const MenuWrap = styled.div`
 
 const handleClick = () => {}
 
-const MenuMobile = ({ isOpen, ...props }) => (
-	<Wrapper isOpen={isOpen}>
+const MenuMobile = ({ ...props }) => (
+	<Wrapper>
 		<MenuWrap>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
-				Home
+			<Link to='/'>
+				<LinkMenu href='#'>Home</LinkMenu>
+			</Link>
+			<Link to='/#service'>
+				<LinkMenu href='#'>
+					Service
+				</LinkMenu>
+			</Link>
+			<Link to='/#about'>
+				<LinkMenu href='#'>
+					About
 			</LinkMenu>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
-				Service
-			</LinkMenu>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
-				About
-			</LinkMenu>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
-				Contact
-			</LinkMenu>
+			</Link>
+			
+			<Link to='/#contact'>
+				<LinkMenu href='#'>Contact</LinkMenu>
+			</Link>
 		</MenuWrap>
 
 		<MenuWrap>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
+			<LinkMenu href='#' onClick={handleClick}>
 				Faq
 			</LinkMenu>
-			<LinkMenu isOpen={isOpen} href='#' onClick={handleClick}>
+			<LinkMenu href='#' onClick={handleClick}>
 				Blog
 			</LinkMenu>
 		</MenuWrap>

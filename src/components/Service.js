@@ -242,7 +242,7 @@ const FootWrapper = styled.div``
 class PreService extends Component {
 	render() {
 		return (
-			<Wrapper>
+			<Wrapper id='service'>
 				<Title>
 					<h2>Meet some of our plans</h2>
 				</Title>
