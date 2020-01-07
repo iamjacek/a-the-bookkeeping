@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Link } from "gatsby"
+
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import wallet from '../images/wallet.svg'
 import img from '../images/bottom_home.svg'
 import img2 from '../images/home_shape_bottom.svg'
+
 
 const Outter = styled.div`
 	* {
@@ -139,8 +141,8 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<Outter>
-				<Wrapper id='home'>
+			<Outter id='home'>
+				<Wrapper >
 					<ImageWrapper>
 						<Img src={wallet} />
 					</ImageWrapper>
@@ -153,7 +155,13 @@ class Home extends Component {
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
 						</p>
-						<Link to='/#contact'>
+						<Link
+							to='contact'
+							spy={true}
+							smooth={true}
+							offset={0}
+							duration={400}
+						>
 							<Button>GET QUOTE</Button>
 						</Link>
 					</TextWrapper>

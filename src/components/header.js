@@ -66,7 +66,6 @@ const Header = ({ siteTitle }) => {
 
 	const toggleMenu = () => {
 		setMenuState(!isMenuOpen)
-		console.log('change')
 	}
 
 	return (
@@ -84,7 +83,7 @@ const Header = ({ siteTitle }) => {
 					</LogoWrapper>
 				</Link>
 				<Hamburger onClick={toggleMenu} isOpen={isMenuOpen} />
-				<MenuMobile isOpen={isMenuOpen} />
+				<MenuMobile isOpen={isMenuOpen} handleClick={toggleMenu}/>
 				<MenuDesktop />
 			</HeaderContent>
 		</HeaderWrapper>

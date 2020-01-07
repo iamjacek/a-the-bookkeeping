@@ -36,7 +36,7 @@ const HeaderWrapper = styled.header`
 	background-color: transparent;
 	min-height: 15vh;
 	height: 100%;
-	background-image:  linear-gradient(#d5d9da, transparent 50%);
+	background-image:  linear-gradient(#d5d9da -150%, transparent 50%);
 
 `
 

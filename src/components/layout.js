@@ -6,6 +6,7 @@ import Header from './Header'
 import { theme } from './theme'
 import Footer from '../components/Footer'
 
+
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Play:400,700&display=swap');
@@ -107,12 +108,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-//https://www.npmjs.com/package/smooth-scroll using smooth scroll plugin
-//this is needed to activate smooth scroll
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
-}
+
 
 const Wrapper = styled.div`background-color: #e4e4e4;`
 

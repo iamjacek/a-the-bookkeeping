@@ -277,7 +277,7 @@ class Contact extends Component {
 
 	render() {
 		return (
-			<Wrapper>
+			<Wrapper id='contact'>
 				<FormWrap>
 					<FormHeader>
 						<Text>

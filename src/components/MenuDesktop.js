@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, animateScroll as Scroll } from "react-scroll";
+import { Link as Linka } from "gatsby"
 
 const Wrapper = styled.div`
 	* {
@@ -67,24 +68,40 @@ const MenuWrap = styled.div`
 
 const handleClick = () => {}
 
-const MenuMobile = ({ ...props }) => (
+const MenuDesktop = ({ ...props }) => (
 	<Wrapper>
 		<MenuWrap>
-			<Link to='/'>
+			<Link to='home'
+				spy={true}
+				smooth={false}
+				offset={-150}
+				duration={400}
+			>
 				<LinkMenu href='#'>Home</LinkMenu>
 			</Link>
-			<Link to='/#service'>
-				<LinkMenu href='#'>
-					Service
-				</LinkMenu>
+			<Link to='service'
+				spy={true}
+				smooth={true}
+				offset={0}
+				duration={400}
+			>
+				<LinkMenu href='#'>Service</LinkMenu>
 			</Link>
-			<Link to='/#about'>
-				<LinkMenu href='#'>
-					About
-			</LinkMenu>
+			<Link to='about'
+				spy={true}
+				smooth={true}
+				offset={-20}
+				duration={400}
+			>
+				<LinkMenu href='#'>About</LinkMenu>
 			</Link>
-			
-			<Link to='/#contact'>
+
+			<Link to='contact'
+				spy={true}
+				smooth={true}
+				offset={0}
+				duration={400}
+			>
 				<LinkMenu href='#'>Contact</LinkMenu>
 			</Link>
 		</MenuWrap>
@@ -93,11 +110,11 @@ const MenuMobile = ({ ...props }) => (
 			<LinkMenu href='#' onClick={handleClick}>
 				Faq
 			</LinkMenu>
-			<LinkMenu href='#' onClick={handleClick}>
-				Blog
-			</LinkMenu>
+			<Linka to='/blogposts'>
+				<LinkMenu href='#'>Blog</LinkMenu>
+			</Linka>
 		</MenuWrap>
 	</Wrapper>
 )
 
-export default MenuMobile
+export default MenuDesktop
