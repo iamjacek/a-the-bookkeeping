@@ -4,6 +4,7 @@ import iconsAbout from '../images/icons_about.svg'
 import shapeHome from '../images/shape_home.svg'
 import shapeAbout from '../images/shape_about_tablet.svg'
 import shapeAboutBig from '../images/shape_about_big.svg'
+import Button from '../components/Button'
 
 const Wrapper = styled.div`
 	* {
@@ -134,45 +135,6 @@ const ImageWrapper = styled.div`
 	}
 	${({ theme }) => theme.media.xlarge} {
 		width: 65%;
-	}
-`
-
-const Button = styled.button`
-	position: relative;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: calc(${({ theme }) => theme.font.base}*1);
-	width: 175px;
-	height: 30px;
-	border-radius: 32px;
-	border: none;
-	background-color: #004f69;
-	color: #fcfcfc;
-	margin: 10px auto;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
-	text-align: center;
-	margin-bottom: 50px;
-	:hover {
-		background-color: #007ba3;
-	}
-	${({ theme }) => theme.media.small} {
-		width: 205px;
-		height: 35px;
-	}
-	${({ theme }) => theme.media.medium} {
-		margin: 0;
-	}
-	${({ theme }) => theme.media.large} {
-	}
-	${({ theme }) => theme.media.xlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.5);
-		width: 285px;
-		height: 45px;
-	}
-	${({ theme }) => theme.media.xxlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*3);
-		width: 625px;
-		height: 88px;
 	}
 `
 

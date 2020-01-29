@@ -7,6 +7,7 @@ import leftPlatform from '../images/left_platform.svg'
 import rightPlatform from '../images/right_platform.svg'
 import preserviceSVG from '../images/preservice-shape.svg'
 import preserviceBIG from '../images/shape_preservice_big.svg'
+import Button from '../components/Button'
 
 
 const Wrapper = styled.div`
@@ -112,6 +113,9 @@ const TextWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+	h2{
+		font-size: ${ ({ second }) => second ?'1.45em;': ''};
+	}
 	${({ theme }) => theme.media.small} {
 		width: 325px;
 	}
@@ -133,42 +137,7 @@ const TextWrapper = styled.div`
 	${({ theme }) => theme.media.xxlarge} {
 	}
 `
-const Button = styled.button`
-	position: relative;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: calc(${({ theme }) => theme.font.base}*1);
-	width: 175px;
-	height: 30px;
-	border-radius: 32px;
-	border: none;
-	background-color: #004f69;
-	color: #fcfcfc;
-	margin: 10px auto;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
-	text-align: center;
-	:hover {
-		background-color: #007ba3;
-	}
-	${({ theme }) => theme.media.small} {
-		width: 205px;
-		height: 35px;
-	}
-	${({ theme }) => theme.media.medium} {
-	}
-	${({ theme }) => theme.media.large} {
-	}
-	${({ theme }) => theme.media.xlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.5);
-		width: 285px;
-		height: 45px;
-	}
-	${({ theme }) => theme.media.xxlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*3);
-		width: 625px;
-		height: 88px;
-	}
-`
+
 
 class PreService extends Component {
 	render() {
@@ -198,10 +167,10 @@ class PreService extends Component {
 					<ImageWrapper bottom>
 						<img alt='credit card' src={leftPlatform} />
 					</ImageWrapper>
-					<TextWrapper>
-						<h2>GET IT DONE WITH</h2>
+					<TextWrapper second>
+						<h2>YOUR EMPLOYEES</h2>
 
-						<h1>BOOKKEEPING</h1>
+						<h1>PAYROLL</h1>
 
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

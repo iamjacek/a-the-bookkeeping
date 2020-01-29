@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import img from '../images/board_contact.svg'
 import shape from '../images/shape_contact.svg'
+import Button from '../components/Button'
 
 const Wrapper = styled.div`
 	* {
@@ -78,6 +79,8 @@ const Form = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+	margin-bottom: 2em;
+	margin-right: auto;
 	form {
 		display: flex;
 		flex-direction: column;
@@ -160,44 +163,6 @@ const Form = styled.div`
 			${({ theme }) => theme.media.xxlarge} {
 				font-size: calc(${({ theme }) => theme.font.base}*2);
 				margin-bottom: 30px;
-			}
-		}
-		button {
-			position: relative;
-			font-family: 'Ubuntu', sans-serif;
-			font-size: calc(${({ theme }) => theme.font.base}*1);
-			width: 175px;
-			height: 30px;
-			border-radius: 32px;
-			border: none;
-			background-color: #004f69;
-			color: #fcfcfc;
-			margin: 10px auto;
-			transition: background-color .2s ease-out;
-			cursor: pointer;
-			text-align: center;
-			margin-bottom: 60px;
-			:hover {
-				background-color: #007ba3;
-			}
-			${({ theme }) => theme.media.small} {
-				width: 205px;
-				height: 35px;
-			}
-			${({ theme }) => theme.media.medium} {
-			}
-			${({ theme }) => theme.media.large} {
-				margin: 10px 0 60px auto;
-			}
-			${({ theme }) => theme.media.xlarge} {
-				font-size: calc(${({ theme }) => theme.font.base}*1.5);
-				width: 285px;
-				height: 45px;
-			}
-			${({ theme }) => theme.media.xxlarge} {
-				font-size: calc(${({ theme }) => theme.font.base}*3);
-				width: 625px;
-				height: 88px;
 			}
 		}
 	}
@@ -303,7 +268,7 @@ class Contact extends Component {
 							<label>Message</label>
 							<span>Ask a question or tell how would like us to help you</span>
 							<textarea name='message' />
-							<button type='submit'>Submit</button>
+							<Button type='submit'>Submit</Button>
 						</form>
 					</Form>
 				</FormWrap>

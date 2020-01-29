@@ -6,6 +6,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import wallet from '../images/wallet.svg'
 import img from '../images/bottom_home.svg'
 import img2 from '../images/home_shape_bottom.svg'
+import Button from '../components/Button'
 
 
 const Outter = styled.div`
@@ -101,39 +102,7 @@ const TextWrapper = styled.div`
 
 const Img = styled.img`width: 100%;`
 
-const Button = styled.button`
-	position: relative;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: calc(${({ theme }) => theme.font.base}*1);
-	width: 175px;
-	height: 30px;
-	border-radius: 32px;
-	border: none;
-	background-color: #004f69;
-	color: #fcfcfc;
-	margin: 10px auto;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
-	:hover {
-		background-color: #007ba3;
-	}
-	${({ theme }) => theme.media.small} {
-	}
-	${({ theme }) => theme.media.medium} {
-	}
-	${({ theme }) => theme.media.large} {
-	}
-	${({ theme }) => theme.media.xlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.5);
-		width: 245px;
-		height: 43px;
-	}
-	${({ theme }) => theme.media.xxlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*3);
-		width: 525px;
-		height: 83px;
-	}
-`
+
 
 class Home extends Component {
 	constructor(props) {

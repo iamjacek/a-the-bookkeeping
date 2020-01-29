@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import star from '../images/star.svg'
 import shapeServices from '../images/shape_services.svg'
+import Button from '../components/Button'
 
 const Wrapper = styled.div`
 	* {
@@ -182,36 +183,6 @@ const PriceWrapper = styled.div`
 	flex-direction: row;
 `
 
-const OrderButton = styled.button`
-	position: relative;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: calc(${({ theme }) => theme.font.base}*1);
-	width: 175px;
-	height: 30px;
-	border-radius: 32px;
-	border: none;
-	background-color: ${({ special }) => (special ? '#FCFCFC' : '#004e68')};
-
-	color: ${({ special }) => (special ? '#004e68' : '#FCFCFC ')};
-	margin: 10px auto;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
-	text-align: center;
-	:hover {
-		background-color: ${({ special }) => (special ? '#E4E4E4' : '#007ba3')};
-	}
-	${({ theme }) => theme.media.xlarge} {
-		width: 215px;
-		height: 40px;
-		font-size: calc(${({ theme }) => theme.font.base}*1.3);
-	}
-	${({ theme }) => theme.media.xxlarge} {
-		width: 415px;
-		height: 60px;
-		font-size: calc(${({ theme }) => theme.font.base}*2);
-	}
-`
-
 const Star = styled.img`
 	position: absolute;
 	top: 0;
@@ -278,7 +249,7 @@ class PreService extends Component {
 								</PriceChange>
 							</PriceWrapper>
 						</PriceTag>
-						<OrderButton>Order</OrderButton>
+						<Button>Order</Button>
 					</Card>
 
 					<Card special>
@@ -307,13 +278,13 @@ class PreService extends Component {
 						<PriceTag>
 							<PriceDescription special>Price starts from </PriceDescription>
 							<PriceWrapper>
-								<PriceValue special>£1</PriceValue>
+								<PriceValue special>£3</PriceValue>
 								<PriceChange special>
 									<sup>.00</sup>
 								</PriceChange>
 							</PriceWrapper>
 						</PriceTag>
-						<OrderButton special>Order</OrderButton>
+						<Button special>Order</Button>
 					</Card>
 
 					<Card>
@@ -341,13 +312,13 @@ class PreService extends Component {
 						<PriceTag>
 							<PriceDescription>Price starts from </PriceDescription>
 							<PriceWrapper>
-								<PriceValue>£1</PriceValue>
+								<PriceValue>£7</PriceValue>
 								<PriceChange>
 									<sup>.00</sup>
 								</PriceChange>
 							</PriceWrapper>
 						</PriceTag>
-						<OrderButton>Order</OrderButton>
+						<Button>Order</Button>
 					</Card>
 				</CardWrapper>
 				<FootWrapper>
