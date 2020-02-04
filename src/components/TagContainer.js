@@ -6,7 +6,7 @@ const Wrapper = styled.span`
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: .2em;
-	margin: 0 auto;
+	margin: 0 0;
 `
 
 const TagElement = styled.div`
