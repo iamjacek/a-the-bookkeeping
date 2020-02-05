@@ -54,7 +54,7 @@ const BottomNav = styled.div`
 	}
 `
 
-const BlogPosts = ({ data }) => {
+const BlogPosts = () => {
 	const scrollTop = () => {
 		document.body.scrollTop = 0
 		document.documentElement.scrollTop = 0
@@ -64,7 +64,7 @@ const BlogPosts = ({ data }) => {
 	return (
 		<Layout>
 			<Wrapper>
-				<SEO title='Blog posts' />
+				<SEO title='Blog list' />
 				<h1>{'Blogposts'}</h1>
 				<CardWrapper /> 
 					

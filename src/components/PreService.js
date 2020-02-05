@@ -133,8 +133,14 @@ const TextWrapper = styled.div`
 		}
 	}
 	${({ theme }) => theme.media.xlarge} {
+		h2{
+		font-size: ${ ({ second }) => second ? '2em;' : ''};
+	}
 	}
 	${({ theme }) => theme.media.xxlarge} {
+		h2{
+		font-size: ${ ({ second }) => second ? '4.25em;' : ''};
+	}
 	}
 `
 

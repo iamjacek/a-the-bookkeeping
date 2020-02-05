@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, animateScroll as Scroll } from "react-scroll";
 import { Link as Linka } from "gatsby"
+import { navigate } from '@reach/router';
 
 const Wrapper = styled.div`
 	* {
@@ -38,7 +39,7 @@ const Wrapper = styled.div`
 const LinkMenu = styled.div`
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 400;
-	font-size: calc(${({ theme }) => theme.font.base}*1.125);
+	font-size: calc(${({ theme }) => theme.font.base}*1.065);
 	color: #004f69;
 	border: none;
 	background-color: transparent;
@@ -48,15 +49,15 @@ const LinkMenu = styled.div`
 		color: #007ba3;
 	}
 	${({ theme }) => theme.media.large} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.25);
+		font-size: calc(${({ theme }) => theme.font.base}*1);
 		margin: 0 10px;
 	}
 	${({ theme }) => theme.media.xlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.7);
+		font-size: calc(${({ theme }) => theme.font.base}*1.45);
 		margin: 0 15px;
 	}
 	${({ theme }) => theme.media.xxlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*2.8);
+		font-size: calc(${({ theme }) => theme.font.base}*2.995);
 		margin: 0 20px;
 	}
 `
@@ -68,7 +69,7 @@ const MenuWrap = styled.div`
 
 const handleClick = () => {}
 
-const MenuDesktop = ({ ...props }) => (
+const MenuDesktop = () => (
 	<Wrapper>
 		<MenuWrap>
 			<Link to='home'
@@ -77,7 +78,9 @@ const MenuDesktop = ({ ...props }) => (
 				offset={-150}
 				duration={400}
 			>
-				<LinkMenu href='#'>Home</LinkMenu>
+				<LinkMenu onClick={() => {
+					navigate('/')
+				}}> Home</LinkMenu>
 			</Link>
 			<Link to='service'
 				spy={true}
@@ -85,33 +88,39 @@ const MenuDesktop = ({ ...props }) => (
 				offset={0}
 				duration={400}
 			>
-				<LinkMenu href='#'>Service</LinkMenu>
+				<LinkMenu onClick={() => {
+					navigate('/#service')
+				}}>Service</LinkMenu>
 			</Link>
 			<Link to='about'
 				spy={true}
 				smooth={true}
-				offset={-20}
+				offset={-40}
 				duration={400}
 			>
-				<LinkMenu href='#'>About</LinkMenu>
+				<LinkMenu onClick={() => {
+					navigate('/#about')
+				}}>About</LinkMenu>
 			</Link>
 
-			<Link to='contact'
+			<Link to='/'
 				spy={true}
 				smooth={true}
 				offset={0}
 				duration={400}
 			>
-				<LinkMenu href='#'>Contact</LinkMenu>
+				<LinkMenu onClick={() => {
+					navigate('/#contact')
+				}}>Contact</LinkMenu>
 			</Link>
 		</MenuWrap>
 
 		<MenuWrap>
-			<LinkMenu href='#' onClick={handleClick}>
+			<LinkMenu onClick={handleClick}>
 				Faq
 			</LinkMenu>
 			<Linka to='/blogposts'>
-				<LinkMenu href='#'>Blog</LinkMenu>
+				<LinkMenu>Blog</LinkMenu>
 			</Linka>
 		</MenuWrap>
 	</Wrapper>

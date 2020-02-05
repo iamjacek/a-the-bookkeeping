@@ -79,8 +79,15 @@ const Right = styled.div`
 	}
 	${({ theme }) => theme.media.large} {
 		align-items: center;
-		width: 80%
+		width: 80%;
 		justify-content: space-around;
+	}
+	a:visited{
+		color: #004f69;
+	}
+	a:hover{
+		color: #004f69;
+		text-decoration: underline;
 	}
 `
 

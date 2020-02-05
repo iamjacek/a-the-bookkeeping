@@ -110,15 +110,21 @@ const handleGoBack = () => {
 
 const eyeMove = e => {
 	//eyes follow cursor
-	const eye = document.querySelectorAll('.eye')
-	let x = eye[1].offsetLeft + eye[1].offsetWidth / 2
-	let y = eye[1].offsetTop + eye[1].offsetWidth / 2
-	const pX = e.pageX
-	const pY = e.pageY
-	let rad = Math.atan2(pX - x, pY - y)
-	let rot = rad * (180 / Math.PI) * -1 + 180
-	eye[0].style.transform = 'rotate(' + rot + 'deg)'
-	eye[1].style.transform = 'rotate(' + rot + 'deg)'
+
+	//before we check is the page 404 error page
+	if (window.location.href.includes('404')) {
+		console.log(window.location.href)
+		const eye = document.querySelectorAll('.eye')
+		let x = eye[1].offsetLeft + eye[1].offsetWidth / 2
+		let y = eye[1].offsetTop + eye[1].offsetWidth / 2
+		const pX = e.pageX
+		const pY = e.pageY
+		let rad = Math.atan2(pX - x, pY - y)
+		let rot = rad * (180 / Math.PI) * -1 + 180
+		eye[0].style.transform = 'rotate(' + rot + 'deg)'
+		eye[1].style.transform = 'rotate(' + rot + 'deg)'
+	}
+
 }
 
 const NotFoundPage = () => {
