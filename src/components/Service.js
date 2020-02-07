@@ -202,7 +202,7 @@ const Foot = styled.div`
 	font-size: 14px;
 	color: #004e68;
 	text-align: center;
-	margin: ${({ margin }) => (margin = margin)};
+	margin: ${({ margin }) => (margin)};
 	p:nth-child(1) {
 		margin-bottom: 10px;
 	}

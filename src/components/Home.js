@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 import wallet from '../images/wallet.svg'
 import img from '../images/bottom_home.svg'
@@ -105,9 +105,7 @@ const Img = styled.img`width: 100%;`
 
 
 class Home extends Component {
-	constructor(props) {
-		super(props)
-	}
+
 	render() {
 		return (
 			<Outter id='home'>

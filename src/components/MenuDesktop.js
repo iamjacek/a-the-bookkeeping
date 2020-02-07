@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, animateScroll as Scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import { Link as Linka } from "gatsby"
 import { navigate } from '@reach/router';
 

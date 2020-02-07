@@ -51,7 +51,7 @@ const HeaderContent = styled.header`
 	justify-content: space-between;
 `
 
-const Header = ({ siteTitle }) => {
+const HeaderService = ({ siteTitle }) => {
 	//react hook to store and switch isOpen state of the menu
 	const [ isMenuOpen, setMenuState ] = useState(false)
 
@@ -82,12 +82,12 @@ const Header = ({ siteTitle }) => {
 	)
 }
 
-Header.propTypes = {
+HeaderService.propTypes = {
 	siteTitle: PropTypes.string
 }
 
-Header.defaultProps = {
+HeaderService.defaultProps = {
 	siteTitle: ``
 }
 
-export default Header
+export default HeaderService

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import CardWrapper from '../components/CardWrapper'
 import { Link } from 'gatsby'
