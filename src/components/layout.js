@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     cursor: pointer;
     text-decoration: none;
+    color: #004f68;
   }
      h2, h1, p{
         font-family: 'Play', sans-serif;
