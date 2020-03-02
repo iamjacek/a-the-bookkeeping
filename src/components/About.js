@@ -143,7 +143,7 @@ const Email = styled.input`
 	font-family: 'Play', sans-serif;
 	font-size: calc(${({ theme }) => theme.font.base}*1);
 	background-color: transparent;
-	border: 3px solid #004e68;
+	border: 2px solid #004f68;
 	color: #004e68;
 	border-radius: 5px;
 	width: 280px;
@@ -151,7 +151,7 @@ const Email = styled.input`
 	margin-bottom: 20px;
 	text-align: center;
 	::placeholder {
-		color: #004e68;
+		color: #50707a;
 	}
 	${({ theme }) => theme.media.medium} {
 		width: 330px;
@@ -171,7 +171,6 @@ const Email = styled.input`
 		height: 50px;
 		margin: 0;
 		margin-bottom: 1.2em;
-		border: 4px solid #004e68;
 		font-size: calc(${({ theme }) => theme.font.base}*1.5);
 	}
 		${({ theme }) => theme.media.xxlarge} {
@@ -180,9 +179,15 @@ const Email = styled.input`
 		margin: 0;
 		margin-bottom: 2em;
 		border-radius: 7px;
-		border: 8px solid #004e68;
+		border: 5px solid #004e68;
 		font-size: calc(${({ theme }) => theme.font.base}*3);
 	}
+	  &:focus {
+        border: 3px solid #004f68;
+        ${({ theme }) => theme.media.xxlarge} {
+          border: 8px solid #004e68;
+        }
+      }
 `
 
 const NwesletterText = styled.div`

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from "react-scroll";
-import { Link as Linka } from "gatsby"
-import { navigate } from '@reach/router';
+import { Link } from 'react-scroll'
+import { Link as Linka } from 'gatsby'
+import { navigate } from '@reach/router'
 
 const Wrapper = styled.div`
 	* {
@@ -72,53 +72,50 @@ const handleClick = () => {}
 const MenuDesktop = () => (
 	<Wrapper>
 		<MenuWrap>
-			<Link to='home'
-				spy={true}
-				smooth={false}
-				offset={-150}
-				duration={400}
-			>
-				<LinkMenu onClick={() => {
-					navigate('/')
-				}}> Home</LinkMenu>
+			<Link to='home' spy={true} smooth={false} offset={-150} duration={400}>
+				<LinkMenu
+					onClick={() => {
+						navigate('/')
+					}}
+				>
+					{' '}
+					Home
+				</LinkMenu>
 			</Link>
-			<Link to='service'
-				spy={true}
-				smooth={true}
-				offset={0}
-				duration={400}
-			>
-				<LinkMenu onClick={() => {
-					navigate('/#service')
-				}}>Service</LinkMenu>
+			<Link to='service' spy={true} smooth={true} offset={0} duration={400}>
+				<LinkMenu
+					onClick={() => {
+						navigate('/#service')
+					}}
+				>
+					Service
+				</LinkMenu>
 			</Link>
-			<Link to='about'
-				spy={true}
-				smooth={true}
-				offset={-40}
-				duration={400}
-			>
-				<LinkMenu onClick={() => {
-					navigate('/#about')
-				}}>About</LinkMenu>
+			<Link to='about' spy={true} smooth={true} offset={-40} duration={400}>
+				<LinkMenu
+					onClick={() => {
+						navigate('/#about')
+					}}
+				>
+					About
+				</LinkMenu>
 			</Link>
 
-			<Link to='/'
-				spy={true}
-				smooth={true}
-				offset={0}
-				duration={400}
-			>
-				<LinkMenu onClick={() => {
-					navigate('/#contact')
-				}}>Contact</LinkMenu>
+			<Link to='/' spy={true} smooth={true} offset={0} duration={400}>
+				<LinkMenu
+					onClick={() => {
+						navigate('/#contact')
+					}}
+				>
+					Contact
+				</LinkMenu>
 			</Link>
 		</MenuWrap>
 
 		<MenuWrap>
-			<LinkMenu onClick={handleClick}>
-				Faq
-			</LinkMenu>
+			<Linka to='/FAQ'>
+				<LinkMenu>Faq</LinkMenu>
+			</Linka>
 			<Linka to='/blogposts'>
 				<LinkMenu>Blog</LinkMenu>
 			</Linka>
