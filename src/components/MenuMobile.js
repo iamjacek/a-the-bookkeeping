@@ -95,7 +95,7 @@ const MenuMobile = ({ isOpen, ...props }) => (
 		<MenuWrap height='100px'>
 			
             <LinkMenuSmallLeft isOpen={isOpen} href='#' onClick={props.handleClick}>
-                <Link to='/faq'>	Faq</Link>
+                <Link to='/FAQ'>	Faq</Link>
 				</LinkMenuSmallLeft>
 			
 		

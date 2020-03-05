@@ -136,12 +136,12 @@ const Footer = () => (
       <p>
         A Payroll & Bookkeeping © {new Date().getFullYear()}, Built by
         {` `}
-        <a href="https://www.jacekwitucki.com">JW Media</a>
+        <a href="https://www.jacekwitucki.com">J Media</a>
         {` `}
       </p>
       <p>
-        Sitemap | <Link to="./privacy">Privacy Policy</Link> | FAQ | Services |
-        Contact
+        <Link to="./privacy">Privacy Policy</Link> | <Link to='./FAQ'>FAQ</Link> | <Link to='./#service'>Services</Link> |
+        <Link to='./#contact'>Contact</Link>
       </p>
     </Right>
   </Wrapper>

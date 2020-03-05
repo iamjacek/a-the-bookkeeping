@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, useStaticQuery } from 'gatsby'
-import TagContainer from '../components/TagContainer'
+import TagContainer from  '../components/TagContainer'
 import cal from '../images/calendar.svg'
 
 const Wrapper = styled.div`
@@ -312,7 +312,7 @@ ${getDay(post.date)}`}
 					<DateTag>{`${post.date.slice(0, 10)} ${post.date.slice(11, 16)}`}</DateTag>
 					<Body>{post.body.body.slice(0, 140)}</Body>
 					<ReadMore>
-						<Link to={`/blogpost/${post.slug}`}>Read more...</Link>
+						<Link  to={`/blogpost/${post.slug}`}>Read more...</Link>
 					</ReadMore>
 					<TagContainer tags={post.tags} />
 				</Card>

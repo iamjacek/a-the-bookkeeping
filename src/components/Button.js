@@ -24,12 +24,12 @@ const Wrapper = styled.button`
 	${({ theme }) => theme.media.large} {
 	}
 	${({ theme }) => theme.media.xlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*1.5);
+		font-size: calc(${({ theme }) => theme.font.base}*1.4);
 		width: 245px;
 		height: 43px;
 	}
 	${({ theme }) => theme.media.xxlarge} {
-		font-size: calc(${({ theme }) => theme.font.base}*3);
+		font-size: calc(${({ theme }) => theme.font.base}*2.8);
 		width: 525px;
 		height: 83px;
 	}

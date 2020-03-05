@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `A - a bookkeeping and payrol service`,
-    description: `Payrol and bookkeeping service for self employed and business.`,
-    author: `JW`,
+    title: `A - Payroll and Bookkeeping for small business`,
+    description: `Payroll and bookkeeping service for self-employed and business.`,
+    author: `J Media`,
+    twitterHandle: "@ann_payroll",
+    url: "https://apayroll.co.uk"
   },
   plugins: [
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./src/favicon.png",
+        logo: "./src/favicon.png"
       }
     },
     `gatsby-plugin-react-helmet`,
@@ -16,8 +18,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -30,8 +32,8 @@ module.exports = {
         background_color: `#E4E4E4`,
         theme_color: `#004F69`,
         display: `minimal-ui`,
-        icon: `src/images/a-icon.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/a-icon.png` // This path is relative to the root of the site.
+      }
     },
     {
       resolve: `gatsby-source-contentful`,
@@ -43,5 +45,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
-}
+  ]
+};
