@@ -4,9 +4,10 @@ module.exports = {
     description: `Payroll and bookkeeping service for self-employed and business.`,
     author: `J Media`,
     twitterHandle: "@ann_payroll",
-    url: "https://apayroll.co.uk"
+    siteUrl: "https://apayroll.co.uk"
   },
   plugins: [
+    "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

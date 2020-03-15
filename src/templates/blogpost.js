@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
 import TagContainer from "../components/TagContainer";
@@ -9,6 +9,8 @@ import ButtonAlt from "../components/ButtonAlt";
 
 import Share from "../components/Share";
 import cal from "../images/calendar.svg";
+
+import useSiteMetadata from "../components/use-site-metadata";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -234,6 +236,11 @@ const Category = styled(Editor)`
   }
 `;
 
+const ShareWrapper = styled.div`
+  width: calc(100% - 1em);
+  margin: 1em auto;
+`;
+
 //get month and day from the publish date and change it dynamically inside of calendar icon
 const getMonth = date => {
   switch (date.slice(5, 7)) {
@@ -273,8 +280,16 @@ const scrollTop = () => {
   document.documentElement.scrollTop = 0;
 };
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, location }) => {
   const { title, body, image, tags, date } = data.contentfulBlogPost;
+  const { siteUrl, twitterHandle } = useSiteMetadata();
+  const shareProps = {
+    siteUrl: siteUrl,
+    title: title,
+    twitterHandle: twitterHandle,
+    location: location,
+    tags: tags
+  };
   return (
     <Layout>
       <SEO title={title} />
@@ -313,7 +328,10 @@ ${getDay(date)}`}
         <TagContainerWrap>
           <TagContainer tags={tags} />
         </TagContainerWrap>
-        <Share />
+        <ShareWrapper>
+          <Share socialConfig={shareProps} />
+        </ShareWrapper>
+
         <BottomNav>
           <span onClick={scrollTop}>
             <ButtonAlt>Back to Top</ButtonAlt>
@@ -339,12 +357,6 @@ export default BlogPost;
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    site {
-      siteMetadata {
-        url
-        twitterHandle
-      }
-    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug

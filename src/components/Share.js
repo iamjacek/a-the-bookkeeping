@@ -1,77 +1,58 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  FacebookIcon,
+  LinkedinIcon,
+  TwitterIcon,
+  WhatsappIcon
+} from "react-share";
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
-  WhatsappShareButton,
-  RedditShareButton
+  WhatsappShareButton
 } from "react-share";
-import "../css/style.css";
+import "../css/style.scss";
 
 const Share = ({ socialConfig, tags }) => (
   <div className="post-social">
     <FacebookShareButton
-      url={socialConfig.config.url}
+      url={socialConfig.location.href}
       className="button is-outlined is-rounded facebook"
     >
       <span className="icon">
-        <FontAwesomeIcon icon={["fab", "facebook-f"]} />
+        <FacebookIcon size={30} round={false} borderRadius="5" />
       </span>
-      <span className="text">Facebook</span>
     </FacebookShareButton>
     <TwitterShareButton
-      url={socialConfig.config.url}
+      url={socialConfig.location.href}
       className="button is-outlined is-rounded twitter"
-      title={socialConfig.config.title}
+      title={socialConfig.title}
       via={socialConfig.twitterHandle.split("@").join("")}
       hashtags={tags}
     >
+      {console.log(tags)}
       <span className="icon">
-        <FontAwesomeIcon icon={["fab", "twitter"]} />
+        <TwitterIcon size={30} round={false} borderRadius="5" />
       </span>
-      <span className="text">Twitter</span>
     </TwitterShareButton>
-    <GooglePlusShareButton
-      url={socialConfig.config.url}
-      className="button is-outlined is-rounded googleplus"
-    >
-      <span className="icon">
-        <FontAwesomeIcon icon={["fab", "google-plus-g"]} />
-      </span>
-      <span className="text">Google+</span>
-    </GooglePlusShareButton>
     <LinkedinShareButton
-      url={socialConfig.config.url}
+      url={socialConfig.location.href}
       className="button is-outlined is-rounded linkedin"
-      title={socialConfig.config.title}
+      title={socialConfig.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
+        <LinkedinIcon size={30} round={false} borderRadius="5" />
       </span>
-      <span className="text">LinkedIn</span>
     </LinkedinShareButton>
-    <RedditShareButton
-      url={socialConfig.config.url}
-      className="button is-outlined is-rounded reddit"
-      title={socialConfig.config.title}
-    >
-      <span className="icon">
-        <FontAwesomeIcon icon={["fab", "reddit-alien"]} />
-      </span>
-      <span className="text">Reddit</span>
-    </RedditShareButton>
     <WhatsappShareButton
-      url={socialConfig.config.url}
+      url={socialConfig.location.href}
       className="button is-outlined is-rounded whatsapp"
-      title={socialConfig.config.title}
+      title={socialConfig.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={["fab", "whatsapp"]} />
+        <WhatsappIcon size={30} round={false} borderRadius="5" />
       </span>
-      <span className="text">WhatsApp</span>
     </WhatsappShareButton>
   </div>
 );

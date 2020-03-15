@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, useStaticQuery } from "gatsby";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import "../css/style.css";
+import "../css/style.scss";
 
 const Wrapper = styled.div`
   * {

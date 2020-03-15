@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Header from './HeaderService'
-import { theme } from './theme'
-import Footer from '../components/Footer'
-import path from '../images/path_service_extra.svg'
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import Header from "./HeaderService";
+import { theme } from "./theme";
+import Footer from "./Footer";
+import path from "../images/path_service_extra.svg";
 
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
@@ -105,34 +105,34 @@ const GlobalStyle = createGlobalStyle`
 	      }
          
     }
-`
+`;
 
 const Wrapper = styled.div`
-	background-color: #e4e4e4;
-	${({ theme }) => theme.media.medium} {
-		background-image: url(${path});
-		background-repeat: no-repeat;
-		background-position: -1%;
-		background-size: contain;
-	}
-`
+  background-color: #e4e4e4;
+  ${({ theme }) => theme.media.medium} {
+    background-image: url(${path});
+    background-repeat: no-repeat;
+    background-position: -1%;
+    background-size: contain;
+  }
+`;
 
 const Layout = ({ children }) => {
-	return (
-		<ThemeProvider theme={theme}>
-			<Wrapper>
-				<Header />
+  return (
+    <ThemeProvider theme={theme}>
+      <Wrapper>
+        <Header />
 
-				<GlobalStyle />
-				<main>{children}</main>
-				<Footer />
-			</Wrapper>
-		</ThemeProvider>
-	)
-}
+        <GlobalStyle />
+        <main>{children}</main>
+        <Footer />
+      </Wrapper>
+    </ThemeProvider>
+  );
+};
 
 Layout.propTypes = {
-	children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired
+};
 
-export default Layout
+export default Layout;

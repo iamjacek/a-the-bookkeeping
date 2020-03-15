@@ -1,0 +1,33 @@
+$brand-colors: (
+  facebook: #3b5998,
+  twitter: #1da1f2,
+  googleplus: #dd4b39,
+  linkedin: #0077b5,
+  reddit: #ff4500,
+  whatsapp: #128c7e
+);
+
+.post-social {
+  .button {
+    margin: 0.5rem 0.25rem;
+    // transition: all 300ms ease-out;
+    @each $class, $color in $brand-colors {
+      &.#{$class} {
+        color: $color;
+        border-color: $color;
+        &:hover {
+          background-color: $color;
+          border-color: $color;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.open {
+  max-height: 1000px;
+  padding: 1.4em 1em;
+  opacity: 1;
+  transition: opacity 0.4s 0.1s ease-out, max-height 1.5s 0.1s ease-out;
+}
