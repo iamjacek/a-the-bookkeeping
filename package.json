@@ -28,6 +28,7 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "prettier": "^1.19.1"
   },
   "keywords": [

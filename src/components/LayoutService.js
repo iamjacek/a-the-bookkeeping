@@ -117,7 +117,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const layoutService = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
@@ -131,8 +131,8 @@ const Layout = ({ children }) => {
   );
 };
 
-Layout.propTypes = {
+layoutService.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Layout;
+export default layoutService;
