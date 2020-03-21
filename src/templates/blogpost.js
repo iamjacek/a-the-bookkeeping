@@ -6,6 +6,7 @@ import styled from "styled-components";
 import TagContainer from "../components/TagContainer";
 import Button from "../components/Button";
 import ButtonAlt from "../components/ButtonAlt";
+import { Link as LinkSmooth } from "react-scroll";
 
 import Share from "../components/Share";
 import cal from "../images/calendar.svg";
@@ -276,8 +277,12 @@ const getDay = date => {
 };
 
 const scrollTop = () => {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  // document.body.scrollTop = 0;
+  // document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 };
 
 const BlogPost = ({ data, location }) => {

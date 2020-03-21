@@ -4,6 +4,8 @@ import linkedin from "../images/linkedin.svg";
 import fb from "../images/fb.svg";
 import chat from "../images/chat.svg";
 import { Link } from "gatsby";
+import { Link as LinkSmooth } from "react-scroll";
+import { navigate } from "@reach/router";
 
 const Wrapper = styled.footer`
   background-color: #d5d9da;
@@ -140,8 +142,24 @@ const Footer = () => (
         {` `}
       </p>
       <p>
-        <Link to="./privacy">Privacy Policy</Link> | <Link to='./FAQ'>FAQ</Link> | <Link to='./#service'>Services</Link> |
-        <Link to='./#contact'>Contact</Link>
+        <Link to="./privacy">Privacy Policy</Link> | <Link to="./FAQ">FAQ</Link>{" "}
+        |{" "}
+        <LinkSmooth
+          to="service"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={400}
+        >
+          <a
+            onClick={() => {
+              navigate("/#service");
+            }}
+          >
+            Service
+          </a>
+        </LinkSmooth>{" "}
+        |<Link to="./#contact">Contact</Link>
       </p>
     </Right>
   </Wrapper>
