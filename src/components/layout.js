@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Header from './Header'
-import { theme } from './theme'
-import Footer from '../components/Footer'
-
+import React from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import Header from "./header"
+import { theme } from "./theme"
+import Footer from "../components/Footer"
 
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
@@ -109,36 +108,36 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-
-
-const Wrapper = styled.div`background-color: #e4e4e4;`
+const Wrapper = styled.div`
+  background-color: #e4e4e4;
+`
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`)
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
-	return (
-		<ThemeProvider theme={theme}>
-			<Wrapper>
-				<Header siteTitle={data.site.siteMetadata.title} />
+  return (
+    <ThemeProvider theme={theme}>
+      <Wrapper>
+        <Header siteTitle={data.site.siteMetadata.title} />
 
-				<GlobalStyle />
-				<main>{children}</main>
-				<Footer />
-			</Wrapper>
-		</ThemeProvider>
-	)
+        <GlobalStyle />
+        <main>{children}</main>
+        <Footer />
+      </Wrapper>
+    </ThemeProvider>
+  )
 }
 
 Layout.propTypes = {
-	children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
