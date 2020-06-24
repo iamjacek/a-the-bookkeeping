@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import Header from "./HeaderService";
-import { theme } from "./theme";
-import Footer from "./Footer";
-import path from "../images/path_service_extra.svg";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import Header from "./HeaderService"
+import { theme } from "./theme"
+import Footer from "./Footer"
+import path from "../images/path_service_extra.svg"
 
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
@@ -105,7 +105,7 @@ const GlobalStyle = createGlobalStyle`
 	      }
          
     }
-`;
+`
 
 const Wrapper = styled.div`
   background-color: #e4e4e4;
@@ -115,7 +115,7 @@ const Wrapper = styled.div`
     background-position: -1%;
     background-size: contain;
   }
-`;
+`
 
 const layoutService = ({ children }) => {
   return (
@@ -128,11 +128,11 @@ const layoutService = ({ children }) => {
         <Footer />
       </Wrapper>
     </ThemeProvider>
-  );
-};
+  )
+}
 
 layoutService.propTypes = {
-  children: PropTypes.node.isRequired
-};
+  children: PropTypes.node.isRequired,
+}
 
-export default layoutService;
+export default LayoutService
