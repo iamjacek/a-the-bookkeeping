@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Layout from "../components/layoutService";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import React from "react"
+import styled from "styled-components"
+import Layout from "../components/layoutService"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     min-height: unset;
     height: 75vh;
   }
-`;
+`
 
 const ImageWrapper = styled.div`
   width: 100%;
@@ -71,7 +71,7 @@ const ImageWrapper = styled.div`
     margin: 0;
     margin-left: 5%;
   }
-`;
+`
 
 const Outter = styled.div`
   margin: 0 10%;
@@ -82,7 +82,7 @@ const Outter = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 const QuestionWrap = styled.div`
   ${({ theme }) => theme.media.medium} {
@@ -106,7 +106,7 @@ const QuestionWrap = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     font-size: calc(${({ theme }) => theme.font.base}*2.5);
   }
-`;
+`
 
 const Main = styled.div`
   ${({ theme }) => theme.media.small} {
@@ -136,7 +136,7 @@ const Main = styled.div`
       width: 50%;
     }
   }
-`;
+`
 
 const Bookkeeping = ({ data }) => {
   return (
@@ -154,36 +154,33 @@ const Bookkeeping = ({ data }) => {
             </ImageWrapper>
 
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting. Lorem Ipsum has been the industry’s
-              standard dummy text ever since the 1500s, when an unknown printer
-              took a galley of type and scrambled it to make a type specimen
-              book. It has survived not only five centuries, but also the leap
-              into electronic typesetting.
+              Bookkeeping is the recording of financial transactions, and is
+              part of the process of accounting in business.[1] Transactions
+              include purchases, sales, receipts, and payments by an individual
+              person or an organization/corporation. There are several standard
+              methods of bookkeeping, including the single-entry and
+              double-entry bookkeeping systems. While these may be viewed as
+              "real" bookkeeping, any process for recording financial
+              transactions is a bookkeeping process.
             </p>
           </Main>
 
           <QuestionWrap>
-            <h2>What we do</h2>
+            <h2>We do all transactions of yours</h2>
             <ul>
-              <li>Lorem Ipsum</li>
-              <li>simply dummy </li>
-              <li>text of the printing </li>
-              <li>typesetting industry</li>
-              <li>Lorem Ipsum</li>
+              <li>purchases</li>
+              <li>sales</li>
+              <li>receipts</li>
+              <li>payments</li>
             </ul>
           </QuestionWrap>
         </Outter>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default Bookkeeping;
+export default Bookkeeping
 
 export const query = graphql`
   query {
@@ -195,4 +192,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

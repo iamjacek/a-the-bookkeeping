@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import linkedin from "../images/linkedin.svg";
-import fb from "../images/fb.svg";
-import chat from "../images/chat.svg";
-import { Link } from "gatsby";
-import { Link as LinkSmooth } from "react-scroll";
-import { navigate } from "@reach/router";
+import React, { Component } from "react"
+import styled from "styled-components"
+import linkedin from "../images/linkedin.svg"
+import fb from "../images/fb.svg"
+import chat from "../images/chat.svg"
+import { Link } from "gatsby"
+import { Link as LinkSmooth } from "react-scroll"
+import { navigate } from "@reach/router"
 
 const Wrapper = styled.footer`
   background-color: #d5d9da;
@@ -15,6 +15,13 @@ const Wrapper = styled.footer`
   display: flex;
   flex-direction: row;
   min-height: 5vh;
+  a:visited {
+    color: #004f69;
+  }
+  a:hover {
+    color: #004f69;
+    text-decoration: underline;
+  }
   ${({ theme }) => theme.media.large} {
     height: 10vh;
     flex-direction: row-reverse;
@@ -22,6 +29,13 @@ const Wrapper = styled.footer`
   p {
     text-align: left;
     margin-bottom: 0.3em;
+    a:visited {
+      color: #004f69;
+    }
+    a:hover {
+      color: #004f69;
+      text-decoration: underline;
+    }
   }
   h3 {
     font-size: calc(${({ theme }) => theme.font.base}*0.8);
@@ -38,7 +52,7 @@ const Wrapper = styled.footer`
       font-size: calc(${({ theme }) => theme.font.base}*2.3);
     }
   }
-`;
+`
 
 const Left = styled.div`
   width: 50%;
@@ -66,7 +80,7 @@ const Left = styled.div`
     }
     width: 20%;
   }
-`;
+`
 
 const Right = styled.div`
   width: 50%;
@@ -85,6 +99,9 @@ const Right = styled.div`
     width: 80%;
     justify-content: space-around;
   }
+  a {
+    color: #004f69;
+  }
   a:visited {
     color: #004f69;
   }
@@ -92,7 +109,7 @@ const Right = styled.div`
     color: #004f69;
     text-decoration: underline;
   }
-`;
+`
 
 const Social = styled.div`
   display: flex;
@@ -110,7 +127,7 @@ const Social = styled.div`
       margin: 0.6em;
     }
   }
-`;
+`
 
 const Footer = () => (
   <Wrapper id="contact">
@@ -118,13 +135,13 @@ const Footer = () => (
       <span>
         <h3>Let's colaborate</h3>
         <p>
-          <strong>athepayrol@malpa.pl</strong>
+          <strong>payrol112@payrol.co.uk</strong>
         </p>
       </span>
       <span>
         <h3>Phone</h3>
         <p>
-          <strong>077277727772</strong>
+          <strong>070072772</strong>
         </p>
       </span>
 
@@ -138,7 +155,7 @@ const Footer = () => (
       <p>
         A Payroll & Bookkeeping © {new Date().getFullYear()}, Built by
         {` `}
-        <a href="https://www.jacekwitucki.com">J Media</a>
+        <a href="https://www.jacekwitucki.com">Jacek Witucki</a>
         {` `}
       </p>
       <p>
@@ -151,18 +168,18 @@ const Footer = () => (
           offset={0}
           duration={400}
         >
-          <a
+          <span
             onClick={() => {
-              navigate("/#service");
+              navigate("/#service")
             }}
           >
             Service
-          </a>
+          </span>
         </LinkSmooth>{" "}
-        |<Link to="./#contact">Contact</Link>
+        | <Link to="./#contact">Contact</Link>
       </p>
     </Right>
   </Wrapper>
-);
+)
 
-export default Footer;
+export default Footer

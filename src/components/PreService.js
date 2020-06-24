@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
 
-import img from "../images/bottom_home.svg";
-import leftPlatform from "../images/left_platform.svg";
-import rightPlatform from "../images/right_platform.svg";
-import preserviceSVG from "../images/preservice-shape.svg";
-import preserviceBIG from "../images/shape_preservice_big.svg";
-import Button from "../components/Button";
+import img from "../images/bottom_home.svg"
+import leftPlatform from "../images/left_platform.svg"
+import rightPlatform from "../images/right_platform.svg"
+import preserviceSVG from "../images/preservice-shape.svg"
+import preserviceBIG from "../images/shape_preservice_big.svg"
+import Button from "../components/Button"
 
 const Wrapper = styled.div`
   * {
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     background-image: url(${preserviceBIG});
     background-position-y: 0;
   }
-`;
+`
 const Bookkeeping = styled.div`
   position: relative;
   display: flex;
@@ -50,7 +50,7 @@ const Bookkeeping = styled.div`
   }
   ${({ theme }) => theme.media.large} {
   }
-`;
+`
 const Payroll = styled.div`
   position: relative;
   display: flex;
@@ -62,7 +62,7 @@ const Payroll = styled.div`
   }
   ${({ theme }) => theme.media.large} {
   }
-`;
+`
 const ImageWrapper = styled.div`
   position: relative;
   height: 30%;
@@ -106,7 +106,7 @@ const ImageWrapper = styled.div`
         bottom ? "translateX(-50%)" : "translateX(0)"};
     }
   }
-`;
+`
 const TextWrapper = styled.div`
   width: 290px;
   margin: 0 auto;
@@ -143,7 +143,7 @@ const TextWrapper = styled.div`
       font-size: ${({ second }) => (second ? "4.25em;" : "")};
     }
   }
-`;
+`
 
 class PreService extends Component {
   render() {
@@ -159,10 +159,8 @@ class PreService extends Component {
             <h1>BOOKKEEPING</h1>
 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Basic bookkeeping is the process of recording all your business
+              transactions to produce a set of accounting records.
             </p>
 
             <Link to="/bookkeeping">
@@ -180,10 +178,10 @@ class PreService extends Component {
             <h1>PAYROLL</h1>
 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              The term 'Payroll' means a list of employees within a company and
+              how much they are to be paid, but nowadays it is more commonly
+              used in reference to employee wages and making a record of the
+              amount of money an employee has made over time.
             </p>
             <Link to="/payroll">
               <Button>TO PAYROLL</Button>
@@ -191,8 +189,8 @@ class PreService extends Component {
           </TextWrapper>
         </Payroll>
       </Wrapper>
-    );
+    )
   }
 }
 
-export default PreService;
+export default PreService

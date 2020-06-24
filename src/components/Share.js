@@ -31,7 +31,6 @@ const Share = ({ socialConfig, tags }) => (
       via={socialConfig.twitterHandle.split("@").join("")}
       hashtags={tags}
     >
-      {console.log(tags)}
       <span className="icon">
         <TwitterIcon size={30} round={false} borderRadius="5" />
       </span>

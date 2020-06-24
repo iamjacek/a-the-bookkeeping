@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, useStaticQuery } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import "../css/style.scss";
+import React from "react"
+import styled from "styled-components"
+import { Link, useStaticQuery } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import "../css/style.scss"
 
 const Wrapper = styled.div`
   * {
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.media.large} {
     min-height: 75vh;
   }
-`;
+`
 
 const BottomNav = styled.div`
   width: 100%;
@@ -50,9 +50,10 @@ const BottomNav = styled.div`
   a:visited {
     color: #004f69;
   }
-`;
+`
 
 const Card = styled.div`
+  cursor: pointer;
   width: 90%;
   overflow: hidden;
   word-break: break-word;
@@ -68,7 +69,7 @@ const Card = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     width: 60%;
   }
-`;
+`
 
 const Header = styled.h1`
   margin-bottom: 0px;
@@ -95,7 +96,7 @@ const Header = styled.h1`
     font-size: calc(${({ theme }) => theme.font.header}*0.65*3.4);
     border: 4px #707070 solid;
   }
-`;
+`
 
 const Answer = styled.p`
   margin: 0;
@@ -114,7 +115,7 @@ const Answer = styled.p`
   overflow: hidden;
   padding: 0 1em;
   opacity: 0;
-  transition: opacity 0.05s ease-in, max-height 0.05s ease-in;
+  transition: opacity 0.15s ease-in, max-height 0.05s ease-in;
 
   ${({ theme }) => theme.media.small} {
     font-size: calc(${({ theme }) => theme.font.base}*1);
@@ -128,12 +129,12 @@ const Answer = styled.p`
     font-size: calc(${({ theme }) => theme.font.base}*2.5);
     border: 4px #707070 solid;
   }
-`;
+`
 
 const Arrow = styled.span`
   :before {
   }
-`;
+`
 
 const FAQ = () => {
   const data = useStaticQuery(
@@ -152,27 +153,27 @@ const FAQ = () => {
         }
       }
     `
-  );
+  )
 
-  //open accordion singles bookmark and allowy to close it when clicked on open once
-  const handleClick = e => {
-    const a = document.querySelectorAll(".cardAnswer");
+  //open accordion singles bookmark and allow to close it when clicked on open once
+  const handleClick = (e) => {
+    const a = document.querySelectorAll(".cardAnswer")
     const checkIsOpen = e.target.parentNode.childNodes[1].classList.contains(
       "open"
-    );
+    )
     if (checkIsOpen) {
-      console.log("true story");
-      e.target.parentNode.childNodes[1].classList.toggle("open");
+      console.log("true story")
+      e.target.parentNode.childNodes[1].classList.toggle("open")
     } else {
-      a.forEach(element => {
-        element.classList.remove("open");
-      });
-      e.target.parentNode.childNodes[1].classList.toggle("open");
+      a.forEach((element) => {
+        element.classList.remove("open")
+      })
+      e.target.parentNode.childNodes[1].classList.toggle("open")
     }
-  };
+  }
 
-  const faqElement = data.allContentfulFaqElement.edges;
-  console.log();
+  const faqElement = data.allContentfulFaqElement.edges
+  console.log()
   return (
     <Layout>
       <Wrapper>
@@ -196,7 +197,7 @@ const FAQ = () => {
         </BottomNav>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default FAQ;
+export default FAQ

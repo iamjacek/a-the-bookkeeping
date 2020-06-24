@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Layout from "../components/layoutService";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import React from "react"
+import styled from "styled-components"
+import Layout from "../components/layoutService"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     min-height: unset;
     height: 75vh;
   }
-`;
+`
 
 const ImageWrapper = styled.div`
   width: 100%;
@@ -71,7 +71,7 @@ const ImageWrapper = styled.div`
     margin: 0;
     margin-left: 5%;
   }
-`;
+`
 
 const Outter = styled.div`
   margin: 0 10%;
@@ -82,7 +82,7 @@ const Outter = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 const QuestionWrap = styled.div`
   ${({ theme }) => theme.media.medium} {
@@ -106,7 +106,7 @@ const QuestionWrap = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     font-size: calc(${({ theme }) => theme.font.base}*2.5);
   }
-`;
+`
 
 const Main = styled.div`
   ${({ theme }) => theme.media.small} {
@@ -136,7 +136,7 @@ const Main = styled.div`
       width: 50%;
     }
   }
-`;
+`
 
 const Payroll = ({ data }) => {
   return (
@@ -154,36 +154,30 @@ const Payroll = ({ data }) => {
             </ImageWrapper>
 
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting. Lorem Ipsum has been the industry’s
-              standard dummy text ever since the 1500s, when an unknown printer
-              took a galley of type and scrambled it to make a type specimen
-              book. It has survived not only five centuries, but also the leap
-              into electronic typesetting.
+              Along with the amounts that each employee should receive for time
+              worked or tasks performed, payroll can also refer to a company's
+              records of payments that were previously made to employees,
+              including salaries and wages, bonuses, and withheld taxes, or the
+              company's department that calculates and pays out these amounts
             </p>
           </Main>
 
           <QuestionWrap>
-            <h2>What we do</h2>
+            <h2>Check them all</h2>
             <ul>
-              <li>Lorem Ipsum</li>
-              <li>simply dummy </li>
-              <li>text of the printing </li>
-              <li>typesetting industry</li>
-              <li>Lorem Ipsum</li>
+              <li>salaries</li>
+              <li>wages</li>
+              <li>bonuses</li>
+              <li>withheld taxes</li>
             </ul>
           </QuestionWrap>
         </Outter>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default Payroll;
+export default Payroll
 
 export const query = graphql`
   query {
@@ -195,4 +189,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

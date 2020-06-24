@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import img from "../images/board_contact.svg";
-import shape from "../images/shape_contact.svg";
-import Button from "../components/Button";
+import React, { Component } from "react"
+import styled from "styled-components"
+import img from "../images/board_contact.svg"
+import shape from "../images/shape_contact.svg"
+import Button from "../components/Button"
 
 const Wrapper = styled.div`
   * {
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     background-position-y: 50%;
     flex-direction: row;
   }
-`;
+`
 const FormWrap = styled.div`
   width: 80%;
   max-width: 350px;
@@ -40,7 +40,7 @@ const FormWrap = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     max-width: 1200px;
   }
-`;
+`
 
 const Text = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ const Text = styled.div`
     padding: 0.2em;
     border-radius: 5%;
   }
-`;
+`
 
 const FormHeader = styled.div`
   display: flex;
@@ -71,7 +71,7 @@ const FormHeader = styled.div`
   justify-content: space-evenly;
   width: 100%;
   margin: 50px 0;
-`;
+`
 
 const Form = styled.div`
   width: 100%;
@@ -178,7 +178,7 @@ const Form = styled.div`
       }
     }
   }
-`;
+`
 
 const ImageWrapper = styled.div`
   width: 32%;
@@ -188,7 +188,7 @@ const ImageWrapper = styled.div`
   ${({ theme }) => theme.media.large} {
     display: none;
   }
-`;
+`
 
 const ImageWrapperBig = styled.div`
   display: none;
@@ -210,7 +210,7 @@ const ImageWrapperBig = styled.div`
       width: 150%;
     }
   }
-`;
+`
 
 const ContactBox = styled.div`
   display: none;
@@ -242,15 +242,15 @@ const ContactBox = styled.div`
     }
     transform: translateX(-300px);
   }
-`;
+`
 
 class Contact extends Component {
   state = {
     firstName: "",
     email: "",
     subject: "",
-    message: ""
-  };
+    message: "",
+  }
 
   render() {
     return (
@@ -260,8 +260,8 @@ class Contact extends Component {
             <Text>
               <h2>Contact Us</h2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry’s
+                Please either send an email or fill this form below to get in
+                touch
               </p>
             </Text>
 
@@ -299,9 +299,9 @@ class Contact extends Component {
           <ImageWrapperBig>
             <img alt="clipboard on A the payroll and bookkeeping" src={img} />
           </ImageWrapperBig>
-          <h3>Let's colaborate</h3>
+          <h3>Let's collaborate</h3>
           <p>
-            <strong>athepayrol@malpa.pl</strong>
+            <strong>athepayrol@payroll.co.uk</strong>
           </p>
           <h3>Phone</h3>
           <p>
@@ -309,8 +309,8 @@ class Contact extends Component {
           </p>
         </ContactBox>
       </Wrapper>
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact

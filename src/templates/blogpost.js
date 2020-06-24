@@ -7,6 +7,7 @@ import TagContainer from "../components/TagContainer";
 import Button from "../components/Button";
 import ButtonAlt from "../components/ButtonAlt";
 import { Link as LinkSmooth } from "react-scroll";
+import Img from "gatsby-image";
 
 import Share from "../components/Share";
 import cal from "../images/calendar.svg";
@@ -172,12 +173,12 @@ const Editor = styled.div`
 `;
 
 const PictureContainer = styled.div`
-  width: 100%;
+  width: calc(100% - 1em);
   margin: 1em 0.5em;
   height: 150px;
   overflow: hidden;
   img {
-    width: calc(100% - 1em);
+    width: 100%;
     margin: -40% 0 0 0;
   }
   ${({ theme }) => theme.media.large} {
@@ -195,6 +196,8 @@ const BodyText = styled.p`
   width: calc(100% - 1em);
   margin: 2em 0.5em;
   text-align: left;
+  column-count: 6;
+  column-width: 250px;
 `;
 
 const BottomNav = styled.div`
@@ -295,6 +298,7 @@ const BlogPost = ({ data, location }) => {
     location: location,
     tags: tags
   };
+
   return (
     <Layout>
       <SEO title={title} />
@@ -311,7 +315,7 @@ ${getDay(date)}`}
         </Head>
 
         <PictureContainer>
-          <img alt="post" src={image.file.url} />
+          <Img key={image.id} alt={title} fluid={image.fluid} />
         </PictureContainer>
 
         <Description>
@@ -370,9 +374,11 @@ export const pageQuery = graphql`
         body
       }
       image {
-        file {
-          url
+        fluid {
+          ...GatsbyContentfulFluid_noBase64
+          src
         }
+        id
       }
       tags
     }
