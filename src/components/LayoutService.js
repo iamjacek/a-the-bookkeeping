@@ -117,7 +117,7 @@ const Wrapper = styled.div`
   }
 `
 
-const layoutService = ({ children }) => {
+const LayoutService = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>

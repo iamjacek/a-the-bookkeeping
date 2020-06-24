@@ -112,7 +112,7 @@ const Wrapper = styled.div`
   background-color: #e4e4e4;
 `
 
-const Layout = ({ children }) => {
+const layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
