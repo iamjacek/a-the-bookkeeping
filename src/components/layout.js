@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import Header from "./header"
 import { theme } from "./theme"
-import Footer from "../components/Footer"
+import Footer from "./Footer"
 
 //everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
@@ -112,7 +112,7 @@ const Wrapper = styled.div`
   background-color: #e4e4e4;
 `
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -122,7 +122,6 @@ const layout = ({ children }) => {
       }
     }
   `)
-
   return (
     <ThemeProvider theme={theme}>
       <Wrapper>
@@ -140,4 +139,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default layout
+export default Layout

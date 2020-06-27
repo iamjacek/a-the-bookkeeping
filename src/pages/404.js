@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import CardWrapper from "../components/CardWrapper";
-import { Link } from "gatsby";
-import img from "../images/emot.svg";
+import React, { useEffect } from "react"
+import styled from "styled-components"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import CardWrapper from "../components/CardWrapper"
+import { Link } from "gatsby"
+import img from "../images/emot.svg"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   h1 {
     margin: 1em 0;
   }
-`;
+`
 
 const BlogSugestion = styled.div`
   margin: 1em auto;
@@ -33,7 +33,7 @@ const BlogSugestion = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const Shortcuts = styled.div`
   a:visited {
@@ -49,14 +49,14 @@ const Shortcuts = styled.div`
   p:nth-child(3) {
     margin: 0.5em 0 3em 0;
   }
-`;
+`
 
 const ContentWrapper = styled(Wrapper)`
   flex-direction: column;
   ${({ theme }) => theme.media.large} {
     width: 80%;
   }
-`;
+`
 
 const FaceWrapper = styled.div`
   display: none;
@@ -71,7 +71,7 @@ const FaceWrapper = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     transform: scale(1.7);
   }
-`;
+`
 
 const Eye = styled.div`
   position: relative;
@@ -95,7 +95,7 @@ const Eye = styled.div`
     border-radius: 50%;
     content: " ";
   }
-`;
+`
 
 const Face = styled.div`
   background-image: url(${img});
@@ -103,34 +103,34 @@ const Face = styled.div`
   background-size: cover;
   width: 240px;
   height: 180px;
-`;
+`
 
 const handleGoBack = () => {
-  window.history.back();
-};
+  window.history.back()
+}
 
-const eyeMove = e => {
+const eyeMove = (e) => {
   //eyes follow cursor
 
   //before we check is the page 404 error page
   if (window.location.href.includes("404")) {
-    console.log(window.location.href);
-    const eye = document.querySelectorAll(".eye");
-    let x = eye[1].offsetLeft + eye[1].offsetWidth / 2;
-    let y = eye[1].offsetTop + eye[1].offsetWidth / 2;
-    const pX = e.pageX;
-    const pY = e.pageY;
-    let rad = Math.atan2(pX - x, pY - y);
-    let rot = rad * (180 / Math.PI) * -1 + 180;
-    eye[0].style.transform = "rotate(" + rot + "deg)";
-    eye[1].style.transform = "rotate(" + rot + "deg)";
+    console.log(window.location.href)
+    const eye = document.querySelectorAll(".eye")
+    let x = eye[1].offsetLeft + eye[1].offsetWidth / 2
+    let y = eye[1].offsetTop + eye[1].offsetWidth / 2
+    const pX = e.pageX
+    const pY = e.pageY
+    let rad = Math.atan2(pX - x, pY - y)
+    let rot = rad * (180 / Math.PI) * -1 + 180
+    eye[0].style.transform = "rotate(" + rot + "deg)"
+    eye[1].style.transform = "rotate(" + rot + "deg)"
   }
-};
+}
 
 const NotFoundPage = () => {
   useEffect(() => {
-    document.body.addEventListener("mousemove", eyeMove);
-  });
+    document.body.addEventListener("mousemove", eyeMove)
+  })
   return (
     <Layout>
       <SEO title="404: Not found" />
@@ -164,7 +164,7 @@ const NotFoundPage = () => {
         </ContentWrapper>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

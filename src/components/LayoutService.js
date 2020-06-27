@@ -131,7 +131,7 @@ const LayoutService = ({ children }) => {
   )
 }
 
-layoutService.propTypes = {
+LayoutService.propTypes = {
   children: PropTypes.node.isRequired,
 }
 

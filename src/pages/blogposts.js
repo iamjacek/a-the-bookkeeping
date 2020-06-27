@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import CardWrapper from "../components/CardWrapper";
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import CardWrapper from "../components/CardWrapper"
 
 const Wrapper = styled.div`
   * {
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   h1 {
     margin: 0.3em 0 0.8em 0;
   }
-`;
+`
 
 const BottomNav = styled.div`
   width: 100%;
@@ -49,13 +49,13 @@ const BottomNav = styled.div`
   a:visited {
     color: #004f69;
   }
-`;
+`
 
 const BlogPosts = () => {
   const scrollTop = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  };
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  }
 
   return (
     <Layout>
@@ -72,7 +72,7 @@ const BlogPosts = () => {
         </BottomNav>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogPosts;
+export default BlogPosts

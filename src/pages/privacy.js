@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Layout from "../components/layout";
+import React from "react"
+import styled from "styled-components"
+import Layout from "../components/Layout"
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     padding: 0 25%;
   }
-`;
+`
 
 const Privacy = () => {
   return (
@@ -187,7 +187,7 @@ const Privacy = () => {
         </p>
       </Wrapper>
     </Layout>
-  );
-};
+  )
+}
 
-export default Privacy;
+export default Privacy

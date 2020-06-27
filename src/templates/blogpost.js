@@ -1,18 +1,18 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import styled from "styled-components";
-import TagContainer from "../components/TagContainer";
-import Button from "../components/Button";
-import ButtonAlt from "../components/ButtonAlt";
-import { Link as LinkSmooth } from "react-scroll";
-import Img from "gatsby-image";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import styled from "styled-components"
+import TagContainer from "../components/TagContainer"
+import Button from "../components/Button"
+import ButtonAlt from "../components/ButtonAlt"
+import { Link as LinkSmooth } from "react-scroll"
+import Img from "gatsby-image"
 
-import Share from "../components/Share";
-import cal from "../images/calendar.svg";
+import Share from "../components/Share"
+import cal from "../images/calendar.svg"
 
-import useSiteMetadata from "../components/use-site-metadata";
+import useSiteMetadata from "../components/use-site-metadata"
 
 const Wrapper = styled.div`
   width: 90%;
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     padding: 7em;
     padding-top: 2em;
   }
-`;
+`
 
 const Head = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ const Head = styled.div`
     margin: 2em 1em;
     margin-bottom: 4em;
   }
-`;
+`
 
 const Calendar = styled.div`
   margin-right: 1em;
@@ -92,7 +92,7 @@ const Calendar = styled.div`
     height: 135px;
     font-size: calc(${({ theme }) => theme.font.base}*2.8);
   }
-`;
+`
 
 const Title = styled.div`
   color: #004f69;
@@ -114,7 +114,7 @@ const Title = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     font-size: calc(${({ theme }) => theme.font.header}*1.6);
   }
-`;
+`
 
 const DateTag = styled.div`
   margin: 0;
@@ -134,7 +134,7 @@ const DateTag = styled.div`
   span {
     color: #919191;
   }
-`;
+`
 
 const Description = styled.div`
   margin: 0.5em 0.5em;
@@ -151,7 +151,7 @@ const Description = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     margin: 3em 0.5em;
   }
-`;
+`
 
 const Editor = styled.div`
   font-weight: 400;
@@ -170,7 +170,7 @@ const Editor = styled.div`
   span {
     color: #919191;
   }
-`;
+`
 
 const PictureContainer = styled.div`
   width: calc(100% - 1em);
@@ -190,7 +190,7 @@ const PictureContainer = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     height: 600px;
   }
-`;
+`
 
 const BodyText = styled.p`
   width: calc(100% - 1em);
@@ -198,7 +198,7 @@ const BodyText = styled.p`
   text-align: left;
   column-count: 6;
   column-width: 250px;
-`;
+`
 
 const BottomNav = styled.div`
   cursor: pointer;
@@ -227,77 +227,77 @@ const BottomNav = styled.div`
   a:visited {
     color: #004f69;
   }
-`;
+`
 
 const TagContainerWrap = styled.div`
   width: calc(100% - 1em);
   margin: 0 auto;
-`;
+`
 
 const Category = styled(Editor)`
   ${({ theme }) => theme.media.large} {
     margin: 0 0.5em;
   }
-`;
+`
 
 const ShareWrapper = styled.div`
   width: calc(100% - 1em);
   margin: 1em auto;
-`;
+`
 
 //get month and day from the publish date and change it dynamically inside of calendar icon
-const getMonth = date => {
+const getMonth = (date) => {
   switch (date.slice(5, 7)) {
     case "01":
-      return "Jan";
+      return "Jan"
     case "02":
-      return "Feb";
+      return "Feb"
     case "03":
-      return "Mar";
+      return "Mar"
     case "04":
-      return "Apr";
+      return "Apr"
     case "05":
-      return "May";
+      return "May"
     case "06":
-      return "Jun";
+      return "Jun"
     case "07":
-      return "Jul";
+      return "Jul"
     case "08":
-      return "Aug";
+      return "Aug"
     case "09":
-      return "Sep";
+      return "Sep"
     case "10":
-      return "Oct";
+      return "Oct"
     case "11":
-      return "Nov";
+      return "Nov"
     case "12":
-      return "Dec";
+      return "Dec"
   }
-};
+}
 
-const getDay = date => {
-  return date.slice(8, 10);
-};
+const getDay = (date) => {
+  return date.slice(8, 10)
+}
 
 const scrollTop = () => {
   // document.body.scrollTop = 0;
   // document.documentElement.scrollTop = 0;
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
-  });
-};
+    behavior: "smooth",
+  })
+}
 
 const BlogPost = ({ data, location }) => {
-  const { title, body, image, tags, date } = data.contentfulBlogPost;
-  const { siteUrl, twitterHandle } = useSiteMetadata();
+  const { title, body, image, tags, date } = data.contentfulBlogPost
+  const { siteUrl, twitterHandle } = useSiteMetadata()
   const shareProps = {
     siteUrl: siteUrl,
     title: title,
     twitterHandle: twitterHandle,
     location: location,
-    tags: tags
-  };
+    tags: tags,
+  }
 
   return (
     <Layout>
@@ -360,9 +360,9 @@ ${getDay(date)}`}
         </BottomNav>
       </Wrapper>
     </Layout>
-  );
-};
-export default BlogPost;
+  )
+}
+export default BlogPost
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -383,4 +383,4 @@ export const pageQuery = graphql`
       tags
     }
   }
-`;
+`
