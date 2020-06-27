@@ -6,7 +6,6 @@ import Header from "./header"
 import { theme } from "./theme"
 import Footer from "./Footer"
 
-//everything used here will affect every component including pages as well, Try to keep it tidy and all body and html amendmends put here
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Play:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap');
