@@ -7,7 +7,15 @@ module.exports = {
     siteUrl: "https://apayroll.co.uk",
   },
   plugins: [
-    `gatsby-plugin-material-ui`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    `gatsby-plugin-styled-components`,
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-favicon`,
