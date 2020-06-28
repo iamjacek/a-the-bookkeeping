@@ -15,7 +15,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-material-ui`,
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-favicon`,
