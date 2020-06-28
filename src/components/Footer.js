@@ -90,6 +90,7 @@ const Right = styled.div`
   justify-content: space-evenly;
   ${({ theme }) => theme.media.small} {
     flex-direction: row;
+    align-items: center;
   }
   p {
     margin: 0 0.5em;
