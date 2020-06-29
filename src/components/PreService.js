@@ -44,18 +44,20 @@ const Bookkeeping = styled.div`
   display: flex;
   flex-direction: column;
   height: 40%;
-
+  width: 100%;
   ${({ theme }) => theme.media.medium} {
     flex-direction: row-reverse;
   }
   ${({ theme }) => theme.media.large} {
   }
 `
+
 const Payroll = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   height: 40%;
+  width: 100%;
 
   ${({ theme }) => theme.media.medium} {
     flex-direction: row;
