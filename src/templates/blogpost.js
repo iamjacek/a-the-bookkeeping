@@ -301,7 +301,8 @@ const BlogPost = ({ data, location }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} keywords={tags ? tags.join(",") : null} />
+
       <Wrapper>
         <Head>
           <Calendar>
@@ -310,6 +311,7 @@ ${getMonth(date)}
 ${getDay(date)}`}
           </Calendar>
           <Title>
+            {console.log(tags.join(","))}
             <h3>{title}</h3>
           </Title>
         </Head>

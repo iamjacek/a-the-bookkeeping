@@ -20,7 +20,15 @@ const Anchor = styled.div`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Home"
+      keywords={[
+        `bookkeeping`,
+        `payroll`,
+        `payroll for small business`,
+        `A payroll and bookkeeping`,
+      ]}
+    />
     <CookieConsent
       acceptOnScroll={true}
       style={{ background: "#004e68" }}

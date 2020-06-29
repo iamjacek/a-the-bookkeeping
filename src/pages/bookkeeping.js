@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Layout from "../components/LayoutService"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -142,6 +143,7 @@ const Bookkeeping = ({ data }) => {
   return (
     <Layout>
       <Wrapper>
+        <SEO title="Bookkeeping" />
         <h1>BOOKKEEPING</h1>
         <Outter>
           <Main>

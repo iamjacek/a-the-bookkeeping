@@ -177,7 +177,7 @@ const FAQ = () => {
   return (
     <Layout>
       <Wrapper>
-        <SEO title="Blog list" />
+        <SEO title="FAQ" />
         <h1>{"FAQ"}</h1>
 
         {faqElement.map(({ node: question }) => (

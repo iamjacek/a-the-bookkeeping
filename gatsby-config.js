@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `A - Payroll and Bookkeeping for small business`,
     description: `Payroll and bookkeeping service for self-employed and business.`,
-    author: `J Media`,
+    author: `Jacek Witucki`,
     twitterHandle: "@ann_payroll",
     siteUrl: "https://apayroll.co.uk",
   },

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
+import SEO from "../components/seo"
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -61,6 +62,7 @@ const Privacy = () => {
   return (
     <Layout>
       <Wrapper>
+        <SEO title="Privacy Policy" />
         <h1>Privacy Policy for A - Payroll and Bookkeeping</h1>
 
         <p>
