@@ -301,11 +301,11 @@ class Contact extends Component {
           </ImageWrapperBig>
           <h3>Let's collaborate</h3>
           <p>
-            <strong>athepayrol@payroll.co.uk</strong>
+            <strong>office@apayroll.co.uk</strong>
           </p>
           <h3>Phone</h3>
           <p>
-            <strong>077277727772</strong>
+            <strong>07413 932625</strong>
           </p>
         </ContactBox>
       </Wrapper>
