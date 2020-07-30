@@ -136,7 +136,7 @@ const Footer = () => (
       <span>
         <h3>Let's collaborate</h3>
         <p>
-          <strong>payrol112@payrol.co.uk</strong>
+          <strong>office@apayroll.co.uk</strong>
         </p>
       </span>
       <span>
