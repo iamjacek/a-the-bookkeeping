@@ -122,7 +122,7 @@ class Home extends Component {
               expenses, assets, liabilities and equity.
             </p>
             <Link
-              to="contact"
+              to="service"
               spy={true}
               smooth={true}
               offset={0}

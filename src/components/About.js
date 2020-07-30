@@ -76,9 +76,21 @@ const Newsletter = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  li {
+    margin-top: 3%;
+    color: #004f69;
+    font-size: calc(${({ theme }) => theme.font.base}*1.15);
+  }
+  color: #004f69;
+  font-size: calc(${({ theme }) => theme.font.base}*1);
   h1 {
     font-size: calc(${({ theme }) => theme.font.header}*1.06);
   }
+  h2 {
+    white-space: pre;
+    margin-top: 5%;
+  }
+
   p {
     width: 80%;
   }
@@ -88,20 +100,19 @@ const Newsletter = styled.div`
     }
   }
   ${({ theme }) => theme.media.medium} {
-    flex-direction: row;
     width: 70%;
     p {
       width: 100%;
     }
   }
   ${({ theme }) => theme.media.large} {
-    flex-direction: column;
     width: 30%;
     h1 {
-      font-size: calc(${({ theme }) => theme.font.header}*1.3);
+      font-size: calc(${({ theme }) => theme.font.header}*1);
     }
     h2 {
-      font-size: calc(${({ theme }) => theme.font.header}*1.23);
+      font-size: calc(${({ theme }) => theme.font.header}*1.1);
+      font-weight: 400;
     }
   }
   ${({ theme }) => theme.media.xlarge} {
@@ -200,7 +211,7 @@ const NewsletterText = styled.div`
 
 const NewsletterCTA = styled.div`
   width: 100%;
-  margin: 0 auto;
+  margin: 5% auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,14 +235,21 @@ class About extends Component {
     return (
       <Wrapper id="about">
         <Title>
-          <h2>What we actually do</h2>
+          <h2>Little word about Us</h2>
         </Title>
         <LayoutWrapper>
           <Text>
             <p>
-              Established in 2018 in the city of Coventry. We are here to
-              provide best service to our clients. Feel free to contact and ask
-              questions. We're here to help!
+              Our mission is to provide clients with the reliable, accurate and
+              affordable <strong>payroll services</strong> for{" "}
+              <strong>small and medium business</strong>.
+            </p>
+            <p>
+              We work everyday because we want to make sure You receive a first
+              class <strong>timeline payroll</strong>.
+            </p>
+            <p>
+              We want to become your <strong>payroll</strong> department.
             </p>
             <ImageWrapper>
               <img
@@ -241,6 +259,31 @@ class About extends Component {
             </ImageWrapper>
           </Text>
           <Newsletter>
+            <NewsletterText>
+              <h2>WHY{`   `}TO</h2>
+
+              <h1>CHOOSE US?</h1>
+              <ul>
+                <li>Available 24/7</li>
+                <li>Reduce cost and risk</li>
+                <li>Confidentiality and respect</li>
+              </ul>
+            </NewsletterText>
+            <NewsletterCTA>
+              <a href="tel:+447413932625">
+                <Button>Call Us</Button>
+              </a>
+            </NewsletterCTA>
+          </Newsletter>
+        </LayoutWrapper>
+      </Wrapper>
+    )
+  }
+}
+
+export default About
+{
+  /* <Newsletter>
             <NewsletterText>
               <h2>STAY UPDATED</h2>
 
@@ -257,11 +300,5 @@ class About extends Component {
               <Email placeholder="your@email.com" />
               <Button>START NOW</Button>
             </NewsletterCTA>
-          </Newsletter>
-        </LayoutWrapper>
-      </Wrapper>
-    )
-  }
+          </Newsletter> */
 }
-
-export default About

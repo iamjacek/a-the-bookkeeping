@@ -134,7 +134,7 @@ const Footer = () => (
   <Wrapper id="contact">
     <Left>
       <span>
-        <h3>Let's colaborate</h3>
+        <h3>Let's collaborate</h3>
         <p>
           <strong>payrol112@payrol.co.uk</strong>
         </p>
@@ -142,7 +142,7 @@ const Footer = () => (
       <span>
         <h3>Phone</h3>
         <p>
-          <strong>070072772</strong>
+          <strong>07413 932625</strong>
         </p>
       </span>
 

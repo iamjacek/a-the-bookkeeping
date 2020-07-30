@@ -13,6 +13,12 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
   min-height: 100vh;
+  ${({ theme }) => theme.media.medium} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
   ${({ theme }) => theme.media.large} {
     background-image: url(${shapeServices});
     background-repeat: no-repeat;
@@ -30,8 +36,11 @@ const CardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 0;
   ${({ theme }) => theme.media.medium} {
+    flex-direction: row;
+  }
+  ${({ theme }) => theme.media.large} {
     flex-direction: row;
   }
   ${({ theme }) => theme.media.xlarge} {
@@ -56,8 +65,8 @@ const Card = styled.div`
   margin: 30px auto;
   padding: 20px;
   border-radius: 5px;
-  width: ${({ special }) => (special ? "310px" : "280px")};
-  height: ${({ special }) => (special ? "460px" : "440px")};
+  width: ${({ special }) => (special ? "310px" : "310px")};
+  height: ${({ special }) => (special ? "460px" : "460px")};
   background: ${({ special }) =>
     special
       ? "linear-gradient(#212C3D -50%, #004F69 60%)"
@@ -66,21 +75,23 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  ${({ theme }) => theme.media.large} {
+  ${({ theme }) => theme.media.medium} {
     margin: 30px 10px;
   }
   ${({ theme }) => theme.media.xlarge} {
     margin: 30px 30px;
-    width: ${({ special }) => (special ? "360px" : "330px")};
-    height: ${({ special }) => (special ? "500px" : "480px")};
+    width: ${({ special }) => (special ? "430px" : "430px")};
+    height: ${({ special }) => (special ? "550px" : "550px")};
     border: 3px solid #004e68;
+    padding: 25px;
   }
   ${({ theme }) => theme.media.xxlarge} {
     margin: 30px 30px;
-    width: ${({ special }) => (special ? "860px" : "730px")};
-    height: ${({ special }) => (special ? "1000px" : "880px")};
+    width: ${({ special }) => (special ? "950px" : "950px")};
+    height: ${({ special }) => (special ? "1100px" : "1100px")};
     border: 7px solid #004e68;
     border-radius: 7px;
+    padding: 30px 65px;
   }
 `
 
@@ -222,30 +233,25 @@ class PreService extends Component {
         </Title>
         <CardWrapper>
           <Card>
-            <CardTitle>Basic</CardTitle>
-            <CardDescription>
-              Form small business or self employed
-            </CardDescription>
+            <CardTitle>Individual</CardTitle>
+            <CardDescription>Self-employed and LTD</CardDescription>
             <CardFeature>
               <Description>Number of employees</Description>
-              <Value>up to 3</Value>
+              <Value>1</Value>
             </CardFeature>
             <CardFeature>
               <Description>Bookkeeping</Description>
-              <Value>Quarterly</Value>
+              <Value>monthly</Value>
             </CardFeature>
             <CardFeature>
               <Description>Filing documents</Description>
               <Value>yes</Value>
             </CardFeature>
-            <CardFeature>
-              <Description>Biannual Payroll</Description>
-              <Value>no</Value>
-            </CardFeature>
+
             <PriceTag>
-              <PriceDescription>Price a month </PriceDescription>
+              <PriceDescription>Price from </PriceDescription>
               <PriceWrapper>
-                <PriceValue>£80</PriceValue>
+                <PriceValue>£30</PriceValue>
                 <PriceChange>
                   <sup>.00</sup>
                 </PriceChange>
@@ -259,17 +265,17 @@ class PreService extends Component {
               duration={400}
               style={{ textAlign: "center" }}
             >
-              <Button>Order</Button>
+              <Button>Ask for more</Button>
             </Link>
           </Card>
 
           <Card special>
             <Star src={star} />
-            <CardTitle special>Premium</CardTitle>
-            <CardDescription special>Small and medium business</CardDescription>
+            <CardTitle special>Small business</CardTitle>
+            <CardDescription special>With employees</CardDescription>
             <CardFeature special>
               <Description>Number of employees</Description>
-              <Value>up to 50</Value>
+              <Value> up to 15</Value>
             </CardFeature>
             <CardFeature special>
               <Description>Bookkeeping</Description>
@@ -279,14 +285,11 @@ class PreService extends Component {
               <Description>Filing documents</Description>
               <Value>yes</Value>
             </CardFeature>
-            <CardFeature special>
-              <Description>Biannual Payroll</Description>
-              <Value>yes</Value>
-            </CardFeature>
+
             <PriceTag>
-              <PriceDescription special>Price a moth </PriceDescription>
+              <PriceDescription special>Price from </PriceDescription>
               <PriceWrapper>
-                <PriceValue special>£200</PriceValue>
+                <PriceValue special>£70</PriceValue>
                 <PriceChange special>
                   <sup>.00</sup>
                 </PriceChange>
@@ -300,56 +303,13 @@ class PreService extends Component {
               duration={400}
               style={{ textAlign: "center" }}
             >
-              <Button special>Order</Button>
-            </Link>
-          </Card>
-
-          <Card>
-            <CardTitle>Enterprise</CardTitle>
-            <CardDescription>Big business</CardDescription>
-            <CardFeature>
-              <Description>Number of employees</Description>
-              <Value>more than 50</Value>
-            </CardFeature>
-            <CardFeature>
-              <Description>Bookkeeping</Description>
-              <Value>weekly</Value>
-            </CardFeature>
-            <CardFeature>
-              <Description>Filing documents</Description>
-              <Value>yes</Value>
-            </CardFeature>
-            <CardFeature>
-              <Description>Biannual Payroll</Description>
-              <Value>yes</Value>
-            </CardFeature>
-            <PriceTag>
-              <PriceDescription>Price a month </PriceDescription>
-              <PriceWrapper>
-                <PriceValue>£500</PriceValue>
-                <PriceChange>
-                  <sup>.00</sup>
-                </PriceChange>
-              </PriceWrapper>
-            </PriceTag>
-            <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={0}
-              duration={400}
-              style={{ textAlign: "center" }}
-            >
-              <Button>Order</Button>
+              <Button special>Ask for more</Button>
             </Link>
           </Card>
         </CardWrapper>
         <FootWrapper>
           <Foot margin="50px auto 0 auto">
-            <p>
-              All prices are just estimate and final offer must be considered
-              individually
-            </p>
+            <p>All prices are estimate and they may differ</p>
           </Foot>
           <Foot margin="0 auto 80px auto">
             <p>
@@ -360,7 +320,7 @@ class PreService extends Component {
                 offset={0}
                 duration={400}
               >
-                <strong>Contact for exact quote</strong>
+                <strong>Need more? Write to us!</strong>
               </Link>
             </p>
           </Foot>
