@@ -125,17 +125,15 @@ const CardDescription = styled.div`
 `
 
 const CardFeature = styled.div`
+  margin-bottom: ${({ extramargin }) => (extramargin ? "30px" : "10px")};
   font-weight: 400;
   font-family: "Play", sans-serif;
   font-size: 14px;
-  margin-bottom: 10px;
   color: ${({ special }) => (special ? "#FCFCFC" : "#004e68")};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  &:nth-child(6) {
-    margin-bottom: 30px;
-  }
+
   ${({ theme }) => theme.media.xlarge} {
     font-size: 16px;
   }
@@ -243,7 +241,7 @@ class PreService extends Component {
               <Description>Bookkeeping</Description>
               <Value>monthly</Value>
             </CardFeature>
-            <CardFeature>
+            <CardFeature extramargin>
               <Description>Filing documents</Description>
               <Value>yes</Value>
             </CardFeature>
@@ -281,7 +279,7 @@ class PreService extends Component {
               <Description>Bookkeeping</Description>
               <Value>monthly</Value>
             </CardFeature>
-            <CardFeature special>
+            <CardFeature special extramargin>
               <Description>Filing documents</Description>
               <Value>yes</Value>
             </CardFeature>
