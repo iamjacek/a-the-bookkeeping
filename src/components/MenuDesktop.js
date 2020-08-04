@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-scroll";
-import { Link as Linka } from "gatsby";
-import { navigate } from "@reach/router";
+import React from "react"
+import styled from "styled-components"
+import { Link } from "react-scroll"
+import { Link as Linka } from "gatsby"
+import { navigate } from "@reach/router"
 
 const Wrapper = styled.div`
   * {
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   }
   ${({ theme }) => theme.media.xxlarge} {
   }
-`;
+`
 const LinkMenu = styled.div`
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
@@ -60,14 +60,14 @@ const LinkMenu = styled.div`
     font-size: calc(${({ theme }) => theme.font.base}*2.995);
     margin: 0 20px;
   }
-`;
+`
 
 const MenuWrap = styled.div`
   display: flex;
   flex-direction: row;
-`;
+`
 
-const handleClick = () => {};
+const handleClick = () => {}
 
 const MenuDesktop = () => (
   <Wrapper>
@@ -75,7 +75,7 @@ const MenuDesktop = () => (
       <Link to="home" spy={true} smooth={false} offset={-150} duration={400}>
         <LinkMenu
           onClick={() => {
-            navigate("/");
+            navigate("/")
           }}
         >
           {" "}
@@ -85,7 +85,7 @@ const MenuDesktop = () => (
       <Link to="service" spy={true} smooth={true} offset={0} duration={400}>
         <LinkMenu
           onClick={() => {
-            navigate("/#service");
+            navigate("/#service")
           }}
         >
           Service
@@ -94,17 +94,17 @@ const MenuDesktop = () => (
       <Link to="about" spy={true} smooth={true} offset={-40} duration={400}>
         <LinkMenu
           onClick={() => {
-            navigate("/#about");
+            navigate("/#about")
           }}
         >
           About
         </LinkMenu>
       </Link>
 
-      <Link to="contact" spy={true} smooth={true} offset={0} duration={400}>
+      <Link to="/#contact" spy={true} smooth={true} offset={0} duration={400}>
         <LinkMenu
           onClick={() => {
-            navigate("/#contact");
+            navigate("/#contact")
           }}
         >
           Contact
@@ -121,6 +121,6 @@ const MenuDesktop = () => (
       </Linka>
     </MenuWrap>
   </Wrapper>
-);
+)
 
-export default MenuDesktop;
+export default MenuDesktop

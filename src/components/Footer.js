@@ -154,9 +154,12 @@ const Footer = () => (
     </Left>
     <Right>
       <p>
-        A Payroll & Bookkeeping © {new Date().getFullYear()}, Built by
+        <a href="https://www.jacekwitucki.com">A Payroll & Bookkeeping</a> ©{" "}
+        {new Date().getFullYear()}, Built by
         {` `}
-        <a href="https://www.jacekwitucki.com">Jacek Witucki</a>
+        <a href="https://www.jacekwitucki.com" target="_blank">
+          Jacek Witucki
+        </a>
         {` `}
       </p>
       <p>

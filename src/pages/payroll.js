@@ -4,9 +4,14 @@ import Layout from "../components/LayoutService"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import ReactTooltip from "react-tooltip"
 
 const Wrapper = styled.div`
-  overflow: auto;
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -18,18 +23,17 @@ const Wrapper = styled.div`
     margin: 1em auto;
     text-align: center;
     background-color: transparent;
-    ${({ theme }) => theme.media.medium} {
-      transform: translateY(-1.5em);
-    }
+
     ${({ theme }) => theme.media.large} {
-      font-size: calc(${({ theme }) => theme.font.header}*1.1);
-      transform: translateY(0);
+      margin-bottom: 70px;
     }
     ${({ theme }) => theme.media.xlarge} {
-      font-size: calc(${({ theme }) => theme.font.header}*1.5);
+      font-size: calc(${({ theme }) => theme.font.header}*1.3);
+      margin-top: 0;
     }
     ${({ theme }) => theme.media.xxlarge} {
-      font-size: calc(${({ theme }) => theme.font.header}*3.2);
+      font-size: calc(${({ theme }) => theme.font.header}*2.7);
+      margin: -3em auto 3em auto;
     }
   }
   h2 {
@@ -39,103 +43,98 @@ const Wrapper = styled.div`
     background-color: transparent;
     padding: 0;
   }
-  ul {
-    color: #004f69;
-    text-align: left;
-    padding: 0;
-    margin-bottom: 3em;
-    li {
-      text-align: left;
-      text-decoration: none;
-      list-style-type: none;
-    }
-  }
-  ${({ theme }) => theme.media.large} {
-    min-height: unset;
-    height: 75vh;
-  }
 `
 
 const ImageWrapper = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 2em;
+
   ${({ theme }) => theme.media.small} {
-    width: 40%;
+    width: 80%;
+    margin: 0 auto;
   }
   ${({ theme }) => theme.media.medium} {
-    width: 35%;
-    margin: 5%;
-  }
-  ${({ theme }) => theme.media.large} {
-    width: 45%;
-    margin: 0;
-    margin-left: 5%;
+    width: 100%;
+    margin: 0 auto;
   }
 `
 
-const Outter = styled.div`
+const ContentWrap = styled.div`
+  display: relative;
   margin: 0 10%;
   height: 100%;
-  ${({ theme }) => theme.media.medium} {
+  ${({ theme }) => theme.media.large} {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
   }
 `
 
-const QuestionWrap = styled.div`
-  ${({ theme }) => theme.media.medium} {
-    width: 30%;
-  }
+const Side = styled.div`
+  position: relative;
+  width: 100%;
   font-size: calc(${({ theme }) => theme.font.base}*1);
   margin-top: 0;
   text-align: center;
   font-weight: 400;
   margin-bottom: 40px;
   ${({ theme }) => theme.media.small} {
-    font-size: calc(${({ theme }) => theme.font.base}*1.1);
+    margin-bottom: 70px;
   }
   ${({ theme }) => theme.media.medium} {
+    width: 60%;
+    margin: 0 auto 70px auto;
   }
   ${({ theme }) => theme.media.large} {
-  }
-  ${({ theme }) => theme.media.xlarge} {
-    font-size: calc(${({ theme }) => theme.font.base}*1.5);
-  }
-  ${({ theme }) => theme.media.xxlarge} {
-    font-size: calc(${({ theme }) => theme.font.base}*2.5);
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 
 const Main = styled.div`
+  width: 100%;
   ${({ theme }) => theme.media.small} {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    p {
-      width: 60%;
-    }
-  }
-
-  ${({ theme }) => theme.media.medium} {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    p {
-      width: 60%;
-    }
+    margin-bottom: 60px;
   }
   ${({ theme }) => theme.media.large} {
-    flex-direction: row-reverse;
-    p {
-      width: 50%;
-    }
+    width: 60%;
+  }
+`
+
+const Card = styled.div`
+  cursor: pointer;
+  background: #e4e4e4;
+  font-family: "Play", sans-serif;
+  color: #004f69;
+  width: 80vw;
+  max-width: 256px;
+  height: 80vw;
+  max-height: 170px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(${({ theme }) => theme.font.header}*.65);
+  font-weight: 400;
+  margin-bottom: 30px;
+  transition: box-shadow 0.2s ease-out;
+
+  ${({ theme }) => theme.media.small} {
+    margin: 0 10px 30px 10px;
+  }
+  ${({ theme }) => theme.media.large} {
   }
 `
 
@@ -143,10 +142,16 @@ const Payroll = ({ data }) => {
   return (
     <Layout>
       <Wrapper>
+        <ReactTooltipStyled
+          multiline={true}
+          backgroundColor="#004F69"
+          effect="solid"
+        />
+
         <SEO title="Payroll" />
         <h1>PAYROLL</h1>
-        <Outter>
-          <Main>
+        <ContentWrap>
+          <Side>
             <ImageWrapper>
               <Img
                 title="people"
@@ -154,26 +159,27 @@ const Payroll = ({ data }) => {
                 fluid={data.file.childImageSharp.fluid}
               />
             </ImageWrapper>
-
-            <p>
-              Along with the amounts that each employee should receive for time
-              worked or tasks performed, payroll can also refer to a company's
-              records of payments that were previously made to employees,
-              including salaries and wages, bonuses, and withheld taxes, or the
-              company's department that calculates and pays out these amounts
-            </p>
+          </Side>
+          <Main>
+            <Card
+              data-tip="Filling of statutory payments each month<br />
+            Payroll monthly/weekly<br /> Payroll support<br /> Pensions<br />"
+            >
+              Payroll Processing
+            </Card>
+            <Card data-tip="Payslips to be generated and uploaded into a Portal">
+              Payslip Options
+            </Card>
+            <Card data-tip="Monthly reports<br />G2N">
+              Payroll and HR Reports
+            </Card>
+            <Card data-tip="P60, P11D, P45, etc...">PAYE Forms</Card>
+            <Card data-tip="Paper work<br />Dealing with the new and leaving employees<br />HR advice">
+              HR Matters
+            </Card>
+            <Card data-tip="RTI submission">RTI (Real Time Info)</Card>
           </Main>
-
-          <QuestionWrap>
-            <h2>Check them all</h2>
-            <ul>
-              <li>salaries</li>
-              <li>wages</li>
-              <li>bonuses</li>
-              <li>withheld taxes</li>
-            </ul>
-          </QuestionWrap>
-        </Outter>
+        </ContentWrap>
       </Wrapper>
     </Layout>
   )
@@ -190,5 +196,18 @@ export const query = graphql`
         }
       }
     }
+  }
+`
+
+export const ReactTooltipStyled = styled(ReactTooltip)`
+  ${({ theme }) => theme.media.large} {
+    font-size: 14px !important;
+  }
+  ${({ theme }) => theme.media.xlarge} {
+    font-size: 22px !important;
+  }
+  ${({ theme }) => theme.media.xxlarge} {
+    font-size: 35px !important;
+    padding: 12px 30px;
   }
 `
