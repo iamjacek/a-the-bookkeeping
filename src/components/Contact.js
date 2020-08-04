@@ -3,6 +3,7 @@ import styled from "styled-components"
 import img from "../images/board_contact.svg"
 import shape from "../images/shape_contact.svg"
 import Button from "../components/Button"
+import { navigate } from "gatsby-link"
 
 const Wrapper = styled.div`
   * {
@@ -244,73 +245,113 @@ const ContactBox = styled.div`
   }
 `
 
-class Contact extends Component {
-  state = {
-    firstName: "",
-    email: "",
-    subject: "",
-    message: "",
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
+const Contact = () => {
+  const [state, setState] = React.useState({})
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value })
   }
 
-  render() {
-    return (
-      <Wrapper id="contact">
-        <FormWrap>
-          <FormHeader>
-            <Text>
-              <h2>Contact Us</h2>
-              <p>
-                Please either send an email or fill this form below to get in
-                touch
-              </p>
-            </Text>
+  const formValidation = () => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let count = 0
+    if (re.test(document.querySelector("input[name=email]").value)) ++count
+    if (document.querySelector("input[name=firstName]").value.length > 1)
+      ++count
+    if (document.querySelector("textarea[name=message]").value.length > 5)
+      ++count
 
-            <ImageWrapper>
-              <img alt="clipboard on A the payroll and bookkeeping" src={img} />
-            </ImageWrapper>
-          </FormHeader>
-          <Form>
-            <form
-              name="contact"
-              method="post"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="contactme" value="contact" />
+    return count
+  }
 
-              <input type="text" name="firstName" />
-              <label>Name</label>
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    if (formValidation() === 3) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          ...state,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch((error) => alert(error))
+    }
+  }
 
-              <input type="text" name="email" />
-              <label>Email</label>
+  return (
+    <Wrapper id="contact">
+      <FormWrap>
+        <FormHeader>
+          <Text>
+            <h2>Contact Us</h2>
+            <p>
+              Please either send an email or fill this form below to get in
+              touch
+            </p>
+          </Text>
 
-              <input type="text" name="subject" />
-              <label>Subject</label>
-
-              <textarea name="message" />
-              <label>Message</label>
-              <span>Ask a question or tell how would like us to help you</span>
-              <Button type="submit">Submit</Button>
-            </form>
-          </Form>
-        </FormWrap>
-
-        <ContactBox>
-          <ImageWrapperBig>
+          <ImageWrapper>
             <img alt="clipboard on A the payroll and bookkeeping" src={img} />
-          </ImageWrapperBig>
-          <h3>Let's collaborate</h3>
-          <p>
-            <strong>office@apayroll.co.uk</strong>
-          </p>
-          <h3>Phone</h3>
-          <p>
-            <strong>07413 932625</strong>
-          </p>
-        </ContactBox>
-      </Wrapper>
-    )
-  }
+          </ImageWrapper>
+        </FormHeader>
+        <Form>
+          <form
+            name="contact"
+            method="post"
+            action="/thanks"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+              <label>
+                Don’t fill this out:{" "}
+                <input name="bot-field" onChange={handleChange} />
+              </label>
+            </p>
+
+            <input type="text" name="firstName" onChange={handleChange} />
+            <label>Name</label>
+
+            <input type="text" name="email" onChange={handleChange} />
+            <label>Email</label>
+
+            <input type="text" name="subject" onChange={handleChange} />
+            <label>Subject</label>
+
+            <textarea name="message" onChange={handleChange} />
+            <label>Message</label>
+            <span>Ask a question or tell how would like us to help you</span>
+            <Button type="submit">Submit</Button>
+          </form>
+        </Form>
+      </FormWrap>
+
+      <ContactBox>
+        <ImageWrapperBig>
+          <img alt="clipboard on A the payroll and bookkeeping" src={img} />
+        </ImageWrapperBig>
+        <h3>Let's collaborate</h3>
+        <p>
+          <strong>office@apayroll.co.uk</strong>
+        </p>
+        <h3>Phone</h3>
+        <p>
+          <strong>07413 932625</strong>
+        </p>
+      </ContactBox>
+    </Wrapper>
+  )
 }
 
 export default Contact
