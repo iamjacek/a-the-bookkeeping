@@ -311,7 +311,6 @@ ${getMonth(date)}
 ${getDay(date)}`}
           </Calendar>
           <Title>
-            {console.log(tags.join(","))}
             <h3>{title}</h3>
           </Title>
         </Head>

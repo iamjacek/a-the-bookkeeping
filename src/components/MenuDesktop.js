@@ -67,8 +67,6 @@ const MenuWrap = styled.div`
   flex-direction: row;
 `
 
-const handleClick = () => {}
-
 const MenuDesktop = () => (
   <Wrapper>
     <MenuWrap>
