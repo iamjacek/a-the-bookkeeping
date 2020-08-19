@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { Link, useStaticQuery } from "gatsby";
-import TagContainer from "../components/TagContainer";
-import cal from "../images/calendar.svg";
+import React, { useEffect } from "react"
+import styled from "styled-components"
+import { Link, useStaticQuery } from "gatsby"
+import TagContainer from "../components/TagContainer"
+import cal from "../images/calendar.svg"
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   ${({ theme }) => theme.media.medium} {
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,10 +24,11 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     margin-bottom: 6.2em;
   }
-`;
+`
 
 const Card = styled.div`
   width: 85%;
+  position: relative;
   padding: 1.5em;
   background-color: #d5d9db;
   border-radius: 5px;
@@ -48,7 +50,7 @@ const Card = styled.div`
   :hover {
     box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.15);
     transform: translateY(-0.2em);
-    background-color: #d0d5d7;
+    background-color: #cbd0d3;
   }
   ${({ theme }) => theme.media.xlarge} {
     padding: 2em;
@@ -62,17 +64,23 @@ const Card = styled.div`
       transform: translateY(-0.8em);
     }
   }
-`;
+`
 
 const Head = styled.div`
   display: flex;
   width: 100%;
+  height: 50%;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0 0.2em;
-  transform: translateY(-0.5em);
-`;
+  margin: 0;
+  height: 70px;
+
+  h3 {
+    margin: 0;
+  }
+`
 
 const Calendar = styled.div`
   margin-right: 1em;
@@ -108,7 +116,7 @@ const Calendar = styled.div`
     font-size: calc(${({ theme }) => theme.font.base}*2.8);
     padding-bottom: 20px;
   }
-`;
+`
 
 const DateTag = styled.div`
   margin-top: 0.4em;
@@ -123,16 +131,19 @@ const DateTag = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     font-size: calc(${({ theme }) => theme.font.base}*2.1);
   }
-`;
+`
 
 const Title = styled.div`
   color: #004f69;
   font-size: calc(${({ theme }) => theme.font.header}*0.55);
   width: calc(100% - (1em + 40px));
   text-align: center;
-  transform: translateX(-0.5em);
+
   text-transform: uppercase;
-  height: 7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   h3 {
     color: #004f69;
   }
@@ -145,115 +156,113 @@ const Title = styled.div`
   ${({ theme }) => theme.media.xxlarge} {
     font-size: calc(${({ theme }) => theme.font.header}*1.6);
   }
-`;
-
-const Body = styled.p`
-  text-align: left;
-  margin: 1em 0;
-`;
+`
 
 const ReadMore = styled.p`
   font-weight: 700;
   color: #004f69;
   text-align: left;
   margin: 1em 0;
+  flex-grow: 2;
   a:visited {
     color: #004f69;
   }
   a {
     color: #004f69;
   }
-`;
+`
+
+const TagWrap = styled.div`
+  margin-top: auto;
+  flex-grow: 1;
+`
 
 const CardWrapper = ({ lastPosts }) => {
   const data = useStaticQuery(
     graphql`
       query BlogPostsPageQuery {
-        allContentfulBlogPost(limit: 1000) {
+        allContentfulPost(sort: { fields: publishedDate, order: ASC }) {
           edges {
             node {
               id
               title
               slug
-              date
+              publishedDate(formatString: "DD-MM-YYYY")
               body {
+                json
                 body
               }
-              image {
-                file {
-                  url
-                }
-              }
               tags
+              description
             }
           }
         }
       }
     `
-  );
-  const blogPosts = data.allContentfulBlogPost.edges;
+  )
+  const blogPosts = data.allContentfulPost.edges
 
-  //get month and day from the publish date and change it dynamicaly inside of calendar icon
-  const getMonth = date => {
-    switch (date.slice(5, 7)) {
+  // get month and day from the publish date and change it dynamicaly inside of calendar icon
+  const getMonth = (date) => {
+    switch (date.slice(3, 5)) {
       case "01":
-        return "Jan";
+        return "Jan"
       case "02":
-        return "Feb";
+        return "Feb"
       case "03":
-        return "Mar";
+        return "Mar"
       case "04":
-        return "Apr";
+        return "Apr"
       case "05":
-        return "May";
+        return "May"
       case "06":
-        return "Jun";
+        return "Jun"
       case "07":
-        return "Jul";
+        return "Jul"
       case "08":
-        return "Aug";
+        return "Aug"
       case "09":
-        return "Sep";
+        return "Sep"
       case "10":
-        return "Oct";
+        return "Oct"
       case "11":
-        return "Nov";
+        return "Nov"
       case "12":
-        return "Dec";
+        return "Dec"
       default:
-        return "Jan";
+        return "Jan"
     }
-  };
+  }
 
-  const getDay = date => {
-    return date.slice(8, 10);
-  };
+  const getDay = (date) => {
+    return date.slice(0, 2)
+  }
 
   const checkHeight = () => {
-    const cards = document.querySelectorAll(".card");
-    let height = 0;
-    cards.forEach(e => {
+    const cards = document.querySelectorAll(".card")
+    let height = 0
+    cards.forEach((e) => {
       if (e.offsetHeight > height) {
-        height = e.offsetHeight;
+        height = e.offsetHeight
       }
-    });
-    return height;
-  };
+    })
+    return height
+  }
 
   const setHeight = () => {
-    const cards = document.querySelectorAll(".card");
-    const heightVal = checkHeight();
-    cards.forEach(e => {
-      e.style.height = heightVal + "px";
-    });
-  };
+    const cards = document.querySelectorAll(".card")
+    const heightVal = checkHeight()
+    cards.forEach((e) => {
+      e.style.height = heightVal + "px"
+    })
+  }
 
   const resetHeight = () => {
-    const cards = document.querySelectorAll(".card");
-    cards.forEach(e => {
-      e.style.height = "unset";
-    });
-  };
+    const cards = document.querySelectorAll(".card")
+    cards.forEach((e) => {
+      e.style.height = "unset"
+    })
+  }
 
   const getWidth = () => {
     return Math.max(
@@ -262,68 +271,74 @@ const CardWrapper = ({ lastPosts }) => {
       document.body.offsetWidth,
       document.documentElement.offsetWidth,
       document.documentElement.clientWidth
-    );
-  };
+    )
+  }
 
   useEffect(() => {
     if (getWidth() >= 1007) {
-      setHeight();
+      setHeight()
     }
     window.addEventListener("resize", () => {
-      const a = getWidth();
+      const a = getWidth()
       if (a >= 1007) {
-        setHeight();
+        setHeight()
       } else {
-        resetHeight();
+        resetHeight()
       }
-    });
+    })
 
-    //if blogs exist and user are in 404 and not blogspost list we just want to show 2 blog posts
+    // if blogs exist and user are in 404 and not in the blogspost list we just want to show 2 blog posts
     if (blogPosts && lastPosts) {
-      let cards = document.querySelectorAll(".card");
+      let cards = document.querySelectorAll(".card")
 
       if (cards.length >= 3) {
-        const counter = cards.length - 1;
+        const counter = cards.length - 1
 
         for (let x = counter; x > 1; x--) {
-          console.log(x);
-          cards[x].style.display = "none";
+          console.log(x)
+          cards[x].style.display = "none"
         }
       }
     }
-  });
+  })
 
   return (
     <Wrapper>
       {blogPosts.map(({ node: post }) => (
         <Card key={post.id} className="card">
-          <Head>
-            <Calendar>
-              <Link to={`/blogpost/${post.slug}`}>
+          <Link
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+              alignContent: "flex-start",
+            }}
+            to={`/blogpost/${post.slug}`}
+          >
+            <Head>
+              <Calendar>
                 {`
-${getMonth(post.date)}
-${getDay(post.date)}`}
-              </Link>
-            </Calendar>
-            <Title>
-              <Link to={`/blogpost/${post.slug}`}>
+${getMonth(post.publishedDate)}
+${getDay(post.publishedDate)}`}
+              </Calendar>
+              <Title>
                 <h3>{post.title}</h3>
-              </Link>
-            </Title>
-          </Head>
-          <DateTag>{`${post.date.slice(0, 10)} ${post.date.slice(
-            11,
-            16
-          )}`}</DateTag>
-          <Body>{post.body.body.slice(0, 140)}</Body>
-          <ReadMore>
-            <Link to={`/blogpost/${post.slug}`}>Read more...</Link>
-          </ReadMore>
-          <TagContainer tags={post.tags} />
+              </Title>
+            </Head>
+            <DateTag>{`${post.publishedDate}`}</DateTag>
+
+            <ReadMore>{post.description}</ReadMore>
+            <TagWrap>
+              <TagContainer tags={post.tags} />
+            </TagWrap>
+          </Link>
         </Card>
       ))}
     </Wrapper>
-  );
-};
+  )
+}
 
-export default CardWrapper;
+export default CardWrapper

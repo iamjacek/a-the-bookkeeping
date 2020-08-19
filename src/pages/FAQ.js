@@ -173,13 +173,12 @@ const FAQ = () => {
   }
 
   const faqElement = data.allContentfulFaqElement.edges
-  console.log()
+
   return (
     <Layout>
       <Wrapper>
         <SEO title="FAQ" />
         <h1>{"FAQ"}</h1>
-
         {faqElement.map(({ node: question }) => (
           <Card key={question.id} onClick={handleClick}>
             <Header>
@@ -189,7 +188,6 @@ const FAQ = () => {
             <Answer className="cardAnswer">{question.body.body}</Answer>
           </Card>
         ))}
-
         <BottomNav>
           <span>
             <Link to="/">Back to Homepage</Link>

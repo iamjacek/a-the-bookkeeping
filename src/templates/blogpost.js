@@ -14,6 +14,8 @@ import cal from "../images/calendar.svg"
 
 import useSiteMetadata from "../components/use-site-metadata"
 
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+
 const Wrapper = styled.div`
   width: 90%;
   margin: 2.5em 5%;
@@ -22,18 +24,17 @@ const Wrapper = styled.div`
   overflow: hidden;
   border-radius: 5px;
   padding: 0.5em;
+  min-height: 72vh;
   ${({ theme }) => theme.media.small} {
     width: 70%;
     margin: 2.5em 15%;
-    margin-top: 1em;
-    padding: 1em;
-    padding-top: 0.5em;
+    padding: 1rem 1.5rem;
   }
   ${({ theme }) => theme.media.large} {
     width: 70%;
     margin: 4em 15%;
     padding: 3em;
-    padding-top: 1em;
+    padding-top: 1rem;
   }
   ${({ theme }) => theme.media.xxlarge} {
     width: 60%;
@@ -172,38 +173,23 @@ const Editor = styled.div`
   }
 `
 
-const PictureContainer = styled.div`
-  width: calc(100% - 1em);
-  margin: 1em 0.5em;
-  height: 150px;
-  overflow: hidden;
-  img {
-    width: 100%;
-    margin: -40% 0 0 0;
-  }
-  ${({ theme }) => theme.media.large} {
-    height: 250px;
-  }
-  ${({ theme }) => theme.media.xlarge} {
-    height: 300px;
-  }
-  ${({ theme }) => theme.media.xxlarge} {
-    height: 600px;
-  }
-`
-
 const BodyText = styled.p`
   width: calc(100% - 1em);
-  margin: 2em 0.5em;
-  text-align: left;
+
+  /* margin: 2em 0.5em;
   column-count: 6;
-  column-width: 250px;
+  column-width: 250px; */
+  max-width: 800px;
+  p {
+    text-align: left;
+    margin: 4rem 0;
+  }
 `
 
 const BottomNav = styled.div`
   cursor: pointer;
   width: 100%;
-  margin: 2em 0;
+  margin-top: auto;
   padding: 0 5%;
   display: flex;
   flex-direction: column;
@@ -220,7 +206,7 @@ const BottomNav = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0;
-    margin: 3em 0 0 0;
+    margin-top: auto;
     font-size: calc(${({ theme }) => theme.font.base}*.8);
   }
 
@@ -245,9 +231,9 @@ const ShareWrapper = styled.div`
   margin: 1em auto;
 `
 
-//get month and day from the publish date and change it dynamically inside of calendar icon
+// get month and day from the publish date and change it dynamically inside of calendar icon
 const getMonth = (date) => {
-  switch (date.slice(5, 7)) {
+  switch (date.slice(3, 5)) {
     case "01":
       return "Jan"
     case "02":
@@ -276,7 +262,7 @@ const getMonth = (date) => {
 }
 
 const getDay = (date) => {
-  return date.slice(8, 10)
+  return date.slice(0, 2)
 }
 
 const scrollTop = () => {
@@ -288,36 +274,56 @@ const scrollTop = () => {
   })
 }
 
-const BlogPost = ({ data, location }) => {
-  const { title, body, image, tags, date } = data.contentfulBlogPost
+export const query = graphql`
+  query($slug: String!) {
+    contentfulPost(slug: { eq: $slug }) {
+      title
+      slug
+      publishedDate(formatString: "DD-MM-YYYY")
+      body {
+        json
+      }
+      tags
+    }
+  }
+`
+
+const BlogPost = (props) => {
+  const { title, tags } = props.data.contentfulPost
   const { siteUrl, twitterHandle } = useSiteMetadata()
   const shareProps = {
     siteUrl: siteUrl,
     title: title,
     twitterHandle: twitterHandle,
-    location: location,
+    location: props.location,
     tags: tags,
+  }
+
+  const options = {
+    renderNode: {
+      "embedded-asset-block": (node) => {
+        const alt = node.data.target.fields.title["en-US"]
+        const url = node.data.target.fields.file["en-US"].url
+        return <img alt={alt} src={url} style={{ maxWidth: "200px" }} />
+      },
+    },
   }
 
   return (
     <Layout>
-      <SEO title={title} keywords={tags ? tags.join(",") : null} />
+      <SEO title={title} keywords={tags ? tags : null} />
 
       <Wrapper>
         <Head>
           <Calendar>
             {`
-${getMonth(date)}
-${getDay(date)}`}
+${getMonth(props.data.contentfulPost.publishedDate)}
+${getDay(props.data.contentfulPost.publishedDate)}`}
           </Calendar>
           <Title>
             <h3>{title}</h3>
           </Title>
         </Head>
-
-        <PictureContainer>
-          <Img key={image.id} alt={title} fluid={image.fluid} />
-        </PictureContainer>
 
         <Description>
           <Editor>
@@ -326,15 +332,20 @@ ${getDay(date)}`}
           </Editor>
           <DateTag>
             <span>Posted</span>
-            {` ${date.slice(0, 10)} ${date.slice(11, 16)}`}
+            {` ${props.data.contentfulPost.publishedDate} `}
           </DateTag>
           <Category>
             <span>in</span>
-            {` Company`}
+            {` "A" - Payroll and Bookkeeping`}
           </Category>
         </Description>
 
-        <BodyText>{body.body}</BodyText>
+        <BodyText>
+          {documentToReactComponents(
+            props.data.contentfulPost.body.json,
+            options
+          )}
+        </BodyText>
         <TagContainerWrap>
           <TagContainer tags={tags} />
         </TagContainerWrap>
@@ -364,24 +375,3 @@ ${getDay(date)}`}
   )
 }
 export default BlogPost
-
-export const pageQuery = graphql`
-  query($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      slug
-      date
-      body {
-        body
-      }
-      image {
-        fluid {
-          ...GatsbyContentfulFluid_noBase64
-          src
-        }
-        id
-      }
-      tags
-    }
-  }
-`
