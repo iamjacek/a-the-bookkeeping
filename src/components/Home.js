@@ -109,7 +109,7 @@ class Home extends Component {
       <Outter id="home">
         <Wrapper>
           <ImageWrapper>
-            <Img src={wallet} />
+            <Img src={wallet} alt="Wallet with a money and a credit card" />
           </ImageWrapper>
           <TextWrapper>
             <h2>GET IT DONE WITH</h2>

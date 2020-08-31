@@ -172,7 +172,7 @@ class PreService extends Component {
         </Bookkeeping>
         <Payroll>
           <ImageWrapper bottom>
-            <img alt="credit card" src={leftPlatform} />
+            <img alt="credit card" src={leftPlatform} alt="star decoration" />
           </ImageWrapper>
           <TextWrapper second>
             <h2>YOUR EMPLOYEES</h2>

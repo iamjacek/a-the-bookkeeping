@@ -320,17 +320,32 @@ const Contact = () => {
               </label>
             </p>
 
-            <input type="text" name="firstName" onChange={handleChange} />
-            <label>Name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              onChange={handleChange}
+            />
+            <label for="firstName">Name</label>
 
-            <input type="text" name="email" onChange={handleChange} />
-            <label>Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              onChange={handleChange}
+            />
+            <label for="email">Email</label>
 
-            <input type="text" name="subject" onChange={handleChange} />
-            <label>Subject</label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              onChange={handleChange}
+            />
+            <label for="subject">Subject</label>
 
-            <textarea name="message" onChange={handleChange} />
-            <label>Message</label>
+            <textarea name="message" onChange={handleChange} id="message" />
+            <label fro="message">Message</label>
             <span>Ask a question or tell how would like us to help you</span>
             <Button type="submit">Submit</Button>
           </form>

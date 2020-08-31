@@ -55,7 +55,7 @@ const InnerHamburger = styled.div`
 `
 
 const Hamburger = ({ isOpen, ...props }) => (
-  <Wrapper {...props}>
+  <Wrapper {...props} name="menu button">
     <InnerHamburger isOpen={isOpen} />
   </Wrapper>
 )
