@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://www.jacekwitucki.com">
-    <img alt="JW" src="https://apayroll.co.uk/static/c2ec170fc85fded8a1f712393cb4a2cd/f345a/logo.png" />
+    <img alt="JW" src="https://apayroll.co.uk/static/c2ec170fc85fded8a1f712393cb4a2cd/b149c/logo.png" />
 </p>
 
 ## 🚀 What's in the page?
